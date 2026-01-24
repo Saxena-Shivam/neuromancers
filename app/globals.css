@@ -7,6 +7,14 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  overflow-x: hidden;
+}
+
+* {
+  max-width: 100%;
+}
+
 :root {
   --background: oklch(0.98 0 0);
   --foreground: oklch(0.12 0 0);

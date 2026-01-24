@@ -47,7 +47,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight break-words"
           >
             <span className="bg-gradient-to-r from-neon-cyan via-neon-green to-neon-blue bg-clip-text text-transparent">
               NEUROMANCERS
@@ -72,11 +72,14 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="mt-8 flex items-center justify-center gap-2 text-lg md:text-xl"
+            className="mt-8 flex flex-wrap items-center justify-center gap-2 text-base md:text-lg lg:text-xl px-4"
           >
-            <Code2 className="h-5 w-5 text-primary" />
+            <Code2 className="h-5 w-5 text-primary flex-shrink-0" />
             <span className="text-muted-foreground">We excel in</span>
-            <TypingEffect words={techStack} className="text-primary font-semibold" />
+            <TypingEffect
+              words={techStack}
+              className="text-primary font-semibold"
+            />
           </motion.div>
 
           {/* CTA Buttons */}
