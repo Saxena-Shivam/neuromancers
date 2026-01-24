@@ -58,19 +58,6 @@ export const domainLeads: DomainLeadGroup[] = [
         github: "https://github.com/Vishnu-Utkarsh",
         bio: "ECE '28, Expert @CodeForces, Knight @LeetCode",
       },
-      {
-        id: 3,
-        name: "Anmol Kamath",
-        role: "ML & CP Lead",
-        domain:
-          "Competitive Programming (CP);Machine Learning / AI;Data Science;System Design;Generative AI",
-        image: "/profile/Anmol_Formal_Picture - KAMATH ANMOL.jpeg",
-        email: "24ee01038@iitbbs.ac.in",
-        linkedin:
-          "https://www.linkedin.com/in/anmol-kamath-343838322?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        github: "https://github.com/anmolkamath22",
-        bio: "Deep passion for Machine Learning and AI, applying knowledge across multiple domains.",
-      },
     ],
   },
   {
@@ -135,6 +122,30 @@ export const domainLeads: DomainLeadGroup[] = [
     category: "Machine Learning & Data Science",
     members: [
       {
+        id: 3,
+        name: "Anmol Kamath",
+        role: "ML & CP Lead",
+        domain:
+          "Competitive Programming (CP);Machine Learning / AI;Data Science;System Design;Generative AI",
+        image: "/profile/Anmol_Formal_Picture - KAMATH ANMOL.jpeg",
+        email: "24ee01038@iitbbs.ac.in",
+        linkedin:
+          "https://www.linkedin.com/in/anmol-kamath-343838322?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        github: "https://github.com/anmolkamath22",
+        bio: "Deep passion for Machine Learning and AI, applying knowledge across multiple domains.",
+      },
+      {
+        id: 9,
+        name: "Pathya Taya",
+        role: "Member",
+        domain: "Competitive Programming (CP);Machine Learning / AI",
+        image: "/profile/photophoto - Pathya Taya.jpeg",
+        email: "pathyataya@gmail.com",
+        linkedin: "https://www.linkedin.com/in/pathya",
+        github: "https://github.com/Pathya-Taya",
+        bio: "Third year EE interested in Robotics and ML. Knight on LeetCode. Joining Tech Mahindra as SDE Intern.",
+      },
+      {
         id: 6,
         name: "JupudI Adarsh",
         role: "ML Enthusiast",
@@ -145,19 +156,6 @@ export const domainLeads: DomainLeadGroup[] = [
         linkedin: "https://www.linkedin.com/in/adarsh-jupudi/",
         github: "https://github.com/adarshjupudi",
         bio: "Passionate about competitive programming, machine learning, and OOP project implementation.",
-      },
-      {
-        id: 9,
-        name: "Jayaditya Sahu",
-        role: "ML & Data Science Lead",
-        domain:
-          "Web Development;App Development;Machine Learning / AI;Data Science",
-        image:
-          "/profile/WhatsApp Image 2026-01-24 at 8.37.00 PM - Jayaditya Sahu.jpeg",
-        email: "23CS01025@iitbbs.ac.in",
-        linkedin: "https://www.linkedin.com/in/jayaditya-sahu-0b1a922b4/",
-        github: "https://github.com/Jayadityas",
-        bio: "Third year CSE with experience in MERN, Data analysis, ML. National Semi-finalist in Flipkart Grid 7.0.",
       },
     ],
   },
@@ -212,14 +210,16 @@ export const members: TeamMember[] = [
   },
   {
     id: 16,
-    name: "Pathya Taya",
-    role: "Member",
-    domain: "Competitive Programming (CP);Machine Learning / AI",
-    image: "/profile/photophoto - Pathya Taya.jpeg",
-    email: "pathyataya@gmail.com",
-    linkedin: "https://www.linkedin.com/in/pathya",
-    github: "https://github.com/Pathya-Taya",
-    bio: "Third year EE interested in Robotics and ML. Knight on LeetCode. Joining Tech Mahindra as SDE Intern.",
+    name: "Jayaditya Sahu",
+    role: "ML & Data Science Lead",
+    domain:
+      "Web Development;App Development;Machine Learning / AI;Data Science",
+    image:
+      "/profile/WhatsApp Image 2026-01-24 at 8.37.00 PM - Jayaditya Sahu.jpeg",
+    email: "23CS01025@iitbbs.ac.in",
+    linkedin: "https://www.linkedin.com/in/jayaditya-sahu-0b1a922b4/",
+    github: "https://github.com/Jayadityas",
+    bio: "Third year CSE with experience in MERN, Data analysis, ML. National Semi-finalist in Flipkart Grid 7.0.",
   },
 ];
 
