@@ -192,14 +192,15 @@ export default function ReachOutPage() {
             className="max-w-3xl mx-auto text-center"
           >
             <span className="text-primary font-mono text-sm tracking-wider uppercase">
-              Connect With Us
+              Partner With Us
             </span>
             <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold">
-              Reach Out to <span className="text-primary">Neuromancers</span>
+              Sponsor <span className="text-primary">Neuromancers</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              Interested in sponsoring our events? Have a partnership
-              opportunity? We'd love to hear from you!
+              Support the next generation of tech innovators. Partner with IIT
+              Bhubaneswar's premier tech community and gain visibility among
+              300+ talented students.
             </p>
           </motion.div>
         </div>
@@ -353,14 +354,14 @@ export default function ReachOutPage() {
             <div className="rounded-2xl bg-card border border-border p-6 lg:p-8">
               <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
                 <Target className="h-5 w-5 text-primary" />
-                Type of Inquiry *
+                Opportunity Type *
               </h2>
               <div className="space-y-3">
                 {[
-                  { value: "sponsor", label: "Sponsorship Opportunity" },
-                  { value: "partnership", label: "Partnership/Collaboration" },
-                  { value: "recruitment", label: "Recruitment" },
-                  { value: "other", label: "Other" },
+                  { value: "sponsor", label: "Event Sponsorship" },
+                  { value: "partnership", label: "Strategic Partnership" },
+                  { value: "recruitment", label: "Campus Recruitment" },
+                  { value: "other", label: "Other Collaboration" },
                 ].map((option) => (
                   <label
                     key={option.value}
@@ -403,7 +404,7 @@ export default function ReachOutPage() {
                       message: e.target.value,
                     }))
                   }
-                  placeholder="Tell us about your interest in sponsoring or partnering with Neuromancers..."
+                  placeholder="Tell us about your interest in sponsoring Neuromancers' events and activities. What kind of partnership are you looking for?"
                   rows={6}
                   required
                   className="bg-background resize-none"

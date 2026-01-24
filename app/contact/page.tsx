@@ -42,13 +42,13 @@ const socialLinks = [
   {
     name: "LinkedIn",
     icon: Linkedin,
-    url: "https://linkedin.com/company/neuromancers-iitbbs",
+    url: "https://www.linkedin.com/company/neuromancers",
     color: "hover:text-blue-500",
   },
   {
     name: "Instagram",
     icon: Instagram,
-    url: "https://instagram.com/neuromancers_iitbbs",
+    url: "https://www.instagram.com/neuro_iitbbs/",
     color: "hover:text-pink-500",
   },
   {
@@ -224,7 +224,7 @@ export default function ContactPage() {
                         href="mailto:neuromancers@iitbbs.ac.in"
                         className="text-muted-foreground hover:text-primary transition-colors break-all dark:hover:text-primary"
                       >
-                        neuromancers@iitbbs.ac.in
+                        secyprogsoc.sg@iitbbs.ac.in
                       </a>
                     </div>
                   </div>

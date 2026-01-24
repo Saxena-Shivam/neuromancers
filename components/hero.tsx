@@ -26,7 +26,6 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background pointer-events-none" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] sm:w-[500px] md:w-[700px] lg:w-[800px] h-[300px] sm:h-[500px] md:h-[700px] lg:h-[800px] bg-primary/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[250px] sm:w-[400px] md:w-[500px] lg:w-[600px] h-[250px] sm:h-[400px] md:h-[500px] lg:h-[600px] bg-accent/10 rounded-full blur-3xl pointer-events-none" />
-
       <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-20">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
@@ -38,7 +37,7 @@ export function Hero() {
           >
             <Sparkles className="h-4 w-4 text-primary" />
             <span className="text-sm font-medium text-primary">
-              IIT Bhubaneswar's Premier Programming Society
+              IIT Bhubaneswar's Premier Society
             </span>
           </motion.div>
 

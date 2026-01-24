@@ -14,165 +14,43 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-
-interface Event {
-  id: number;
-  title: string;
-  description: string;
-  fullDescription?: string;
-  date: string;
-  time: string;
-  location: string;
-  attendees: number;
-  type: string;
-  status: "upcoming" | "ongoing" | "past";
-  image: string;
-  highlights?: string[];
-  registrationLink?: string;
-}
-
-const events: Event[] = [
-  {
-    id: 1,
-    title: "Code Sprint 2026",
-    description:
-      "36-hour hackathon with prizes worth INR 1,00,000. Build innovative solutions for real-world problems.",
-    fullDescription:
-      "Code Sprint is our flagship hackathon event bringing together the brightest minds from IITs across India. Teams will compete to build innovative solutions addressing real-world challenges in healthcare, education, and sustainability.",
-    date: "Feb 15-16, 2026",
-    time: "10:00 AM",
-    location: "Main Auditorium, IIT Bhubaneswar",
-    attendees: 250,
-    type: "Hackathon",
-    status: "upcoming",
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=400&fit=crop",
-    highlights: [
-      "INR 1,00,000 prize pool",
-      "24/7 mentorship",
-      "Free meals & accommodation",
-      "Networking with industry experts",
-    ],
-    registrationLink: "https://forms.google.com/codesprint2026",
-  },
-  {
-    id: 2,
-    title: "ML Masterclass: Transformers",
-    description:
-      "Deep dive into transformer architecture and its applications in NLP and computer vision.",
-    date: "Feb 8, 2026",
-    time: "6:00 PM",
-    location: "Online via Google Meet",
-    attendees: 180,
-    type: "Workshop",
-    status: "upcoming",
-    image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=800&h=400&fit=crop",
-    highlights: [
-      "Hands-on coding session",
-      "Certificate of completion",
-      "Q&A with ML experts",
-    ],
-    registrationLink: "https://forms.google.com/mlmasterclass",
-  },
-  {
-    id: 3,
-    title: "Weekly CP Contest #42",
-    description:
-      "Practice contest on Codeforces with problems curated by our CP experts.",
-    date: "Jan 28, 2026",
-    time: "8:00 PM",
-    location: "Online",
-    attendees: 120,
-    type: "Contest",
-    status: "upcoming",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=400&fit=crop",
-    registrationLink: "https://codeforces.com/neuromancers42",
-  },
-  {
-    id: 4,
-    title: "Web Dev Bootcamp",
-    description:
-      "5-day intensive bootcamp covering React, Next.js, and modern web technologies.",
-    date: "Jan 10-14, 2026",
-    time: "10:00 AM",
-    location: "CS Lab, Academic Building",
-    attendees: 200,
-    type: "Bootcamp",
-    status: "past",
-    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=400&fit=crop",
-    highlights: [
-      "5 days of learning",
-      "Build a full-stack project",
-      "Industry-standard practices",
-    ],
-  },
-  {
-    id: 5,
-    title: "Industry Connect: Google",
-    description:
-      "Interactive session with Google engineers on SWE career paths and interview preparation.",
-    date: "Dec 20, 2025",
-    time: "5:00 PM",
-    location: "Seminar Hall",
-    attendees: 300,
-    type: "Guest Lecture",
-    status: "past",
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=400&fit=crop",
-    highlights: [
-      "Insights from Google SWEs",
-      "Resume tips",
-      "Mock interview session",
-    ],
-  },
-  {
-    id: 6,
-    title: "Blockchain Workshop",
-    description:
-      "Introduction to blockchain development with hands-on smart contract deployment.",
-    date: "Dec 10, 2025",
-    time: "2:00 PM",
-    location: "Online",
-    attendees: 150,
-    type: "Workshop",
-    status: "past",
-    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=400&fit=crop",
-  },
-];
+import { events, Event } from "@/data/events";
 
 const eventGallery = [
   {
     id: 1,
-    src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop",
-    title: "Code Sprint 2025",
+    src: "/events/icpc%20_final.png",
+    title: "ICPC Asia West Competition",
     type: "image",
   },
   {
     id: 2,
-    src: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&h=400&fit=crop",
-    title: "Team Building",
+    src: "/events/icpc_contest.png",
+    title: "ICPC Contest",
     type: "image",
   },
   {
     id: 3,
-    src: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=400&fit=crop",
-    title: "Workshop Session",
+    src: "/events/roadtoicpc.png",
+    title: "Road to ICPC",
     type: "image",
   },
   {
     id: 4,
-    src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop",
-    title: "Project Demo",
+    src: "/events/winter_hackathon.png",
+    title: "Winter Hackathon",
     type: "image",
   },
   {
     id: 5,
-    src: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&h=400&fit=crop",
-    title: "Guest Lecture",
+    src: "/events/techzephy_contest.png",
+    title: "TechZephyr Contest",
     type: "image",
   },
   {
     id: 6,
-    src: "https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=600&h=400&fit=crop",
-    title: "Hackathon Night",
+    src: "/events/cyber_security.png",
+    title: "Cybersecurity Workshop",
     type: "image",
   },
 ];
@@ -207,7 +85,7 @@ function CountdownTimer({ targetDate }: { targetDate: string }) {
         setTimeLeft({
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
           hours: Math.floor(
-            (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+            (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
           ),
           minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
           seconds: Math.floor((difference % (1000 * 60)) / 1000),
@@ -244,6 +122,8 @@ export default function EventsPage() {
 
   const upcomingEvents = events.filter((e) => e.status === "upcoming");
   const pastEvents = events.filter((e) => e.status === "past");
+  // Render past events newest-first; keep source array oldest-first so new items just append
+  const pastEventsOrdered = [...pastEvents].reverse();
   const featuredEvent = upcomingEvents[0];
 
   return (
@@ -264,8 +144,8 @@ export default function EventsPage() {
               Learn, Build, <span className="text-primary">Connect</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              Join us for workshops, hackathons, contests, and networking sessions
-              to level up your skills.
+              Join us for workshops, hackathons, contests, and networking
+              sessions to level up your skills.
             </p>
           </motion.div>
         </div>
@@ -302,7 +182,6 @@ export default function EventsPage() {
                 <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
                   {featuredEvent.fullDescription || featuredEvent.description}
                 </p>
-
                 <div className="mt-8 flex flex-wrap gap-6">
                   <div className="flex items-center gap-2">
                     <Calendar className="h-5 w-5 text-primary" />
@@ -400,7 +279,7 @@ export default function EventsPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
                   <Badge
                     className={`absolute top-4 left-4 ${getEventTypeColor(
-                      event.type
+                      event.type,
                     )}`}
                   >
                     {event.type}
@@ -443,7 +322,7 @@ export default function EventsPage() {
             Past Events
           </motion.h2>
           <div className="space-y-4">
-            {pastEvents.map((event, index) => (
+            {pastEventsOrdered.map((event, index) => (
               <motion.div
                 key={event.id}
                 initial={{ opacity: 0, x: -20 }}
@@ -574,7 +453,9 @@ export default function EventsPage() {
                 <Badge className={getEventTypeColor(selectedEvent.type)}>
                   {selectedEvent.type}
                 </Badge>
-                <h2 className="mt-4 text-2xl font-bold">{selectedEvent.title}</h2>
+                <h2 className="mt-4 text-2xl font-bold">
+                  {selectedEvent.title}
+                </h2>
                 <p className="mt-3 text-muted-foreground">
                   {selectedEvent.fullDescription || selectedEvent.description}
                 </p>
@@ -596,7 +477,9 @@ export default function EventsPage() {
                     <Users className="h-5 w-5 text-primary" />
                     <span className="text-sm">
                       {selectedEvent.attendees}+{" "}
-                      {selectedEvent.status === "past" ? "attended" : "registered"}
+                      {selectedEvent.status === "past"
+                        ? "attended"
+                        : "registered"}
                     </span>
                   </div>
                 </div>

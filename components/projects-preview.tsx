@@ -1,60 +1,20 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, Github, ExternalLink, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-
-const featuredProjects = [
-  {
-    id: 1,
-    title: "CodeArena",
-    description:
-      "Real-time competitive programming platform with live contests, leaderboards, and code execution.",
-    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Docker"],
-    github: "https://github.com/neuromancers/codearena",
-    live: "https://codearena.neuromancers.in",
-    stars: 234,
-    featured: true,
-  },
-  {
-    id: 2,
-    title: "ML Pipeline Framework",
-    description:
-      "End-to-end machine learning pipeline for model training, evaluation, and deployment.",
-    techStack: ["Python", "PyTorch", "FastAPI", "Kubernetes"],
-    github: "https://github.com/neuromancers/ml-pipeline",
-    stars: 189,
-    featured: true,
-  },
-  {
-    id: 3,
-    title: "Campus Connect",
-    description:
-      "Social platform for IIT Bhubaneswar students with events, resources, and networking.",
-    techStack: ["React Native", "Node.js", "MongoDB", "Socket.io"],
-    github: "https://github.com/neuromancers/campus-connect",
-    live: "https://connect.iitbbs.ac.in",
-    stars: 156,
-    featured: false,
-  },
-  {
-    id: 4,
-    title: "BlockVote",
-    description:
-      "Decentralized voting system built on Ethereum with zero-knowledge proofs for privacy.",
-    techStack: ["Solidity", "React", "Web3.js", "IPFS"],
-    github: "https://github.com/neuromancers/blockvote",
-    stars: 98,
-    featured: false,
-  },
-];
+import { projects } from "@/data/projects";
 
 export function ProjectsPreview() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const previewProjects = useMemo(() => {
+    return projects.filter((p) => p.featured).slice(0, 4);
+  }, []);
 
   return (
     <section className="py-24 lg:py-32 bg-card/50" ref={ref}>
@@ -91,7 +51,7 @@ export function ProjectsPreview() {
 
         {/* Projects grid */}
         <div className="grid md:grid-cols-2 gap-6">
-          {featuredProjects.map((project, index) => (
+          {previewProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}

@@ -1,64 +1,22 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import { motion, useInView } from "framer-motion";
-import { Trophy, Award, FileCode, GitBranch, Medal, Star } from "lucide-react";
-
-const achievements = [
-  {
-    icon: Trophy,
-    title: "ICPC Regionals 2025",
-    description: "Top 10 finish in Asia West Region",
-    year: "2025",
-    type: "Competition",
-  },
-  {
-    icon: Award,
-    title: "Smart India Hackathon",
-    description: "Winners in Software Edition",
-    year: "2025",
-    type: "Hackathon",
-  },
-  {
-    icon: Medal,
-    title: "Google Summer of Code",
-    description: "15+ students selected across organizations",
-    year: "2024-25",
-    type: "Open Source",
-  },
-  {
-    icon: FileCode,
-    title: "ACM SIGMOD Research",
-    description: "Paper accepted at premier database conference",
-    year: "2024",
-    type: "Research",
-  },
-  {
-    icon: GitBranch,
-    title: "Major League Hacking",
-    description: "Best Use of Cloud Technology Award",
-    year: "2024",
-    type: "Hackathon",
-  },
-  {
-    icon: Star,
-    title: "CodeChef Snackdown",
-    description: "All India Rank 23 in Finals",
-    year: "2024",
-    type: "Competition",
-  },
-];
-
-const stats = [
-  { value: "50+", label: "Competition Wins" },
-  { value: "25+", label: "GSoC Selections" },
-  { value: "10+", label: "Research Papers" },
-  { value: "100+", label: "Open Source PRs" },
-];
+import { Trophy } from "lucide-react";
+import { achievementHighlights, achievementStats } from "@/data/achievements";
 
 export function Achievements() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const previewAchievements = useMemo(() => {
+    // Reverse chronological order and slice 6 most recent
+    return achievementHighlights.reverse().slice(0, 6);
+  }, []);
+
+  const stats = useMemo(() => {
+    return achievementStats;
+  }, []);
 
   return (
     <section id="achievements" className="py-24 lg:py-32 relative" ref={ref}>
@@ -116,55 +74,58 @@ export function Achievements() {
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/50 via-accent/50 to-primary/50 md:-translate-x-1/2" />
 
           <div className="space-y-8">
-            {achievements.map((achievement, index) => (
-              <motion.div
-                key={achievement.title}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: 0.4 + index * 0.1 }}
-                className={`relative flex items-center gap-8 ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background md:-translate-x-1/2 z-10 shadow-lg shadow-primary/50" />
-
-                {/* Content */}
-                <div
-                  className={`ml-12 md:ml-0 md:w-[calc(50%-2rem)] ${
-                    index % 2 === 0 ? "md:text-right md:pr-8" : "md:pl-8"
+            {previewAchievements.map((achievement, index) => {
+              const IconComponent = achievement.icon;
+              return (
+                <motion.div
+                  key={achievement.title}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ delay: 0.4 + index * 0.1 }}
+                  className={`relative flex items-center gap-8 ${
+                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                   }`}
                 >
+                  {/* Timeline dot */}
+                  <div className="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background md:-translate-x-1/2 z-10 shadow-lg shadow-primary/50" />
+
+                  {/* Content */}
                   <div
-                    className={`p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 group`}
+                    className={`ml-12 md:ml-0 md:w-[calc(50%-2rem)] ${
+                      index % 2 === 0 ? "md:text-right md:pr-8" : "md:pl-8"
+                    }`}
                   >
                     <div
-                      className={`flex items-center gap-3 ${
-                        index % 2 === 0 ? "md:flex-row-reverse" : ""
-                      }`}
+                      className={`p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 group`}
                     >
-                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                        <achievement.icon className="h-5 w-5 text-primary" />
+                      <div
+                        className={`flex items-center gap-3 ${
+                          index % 2 === 0 ? "md:flex-row-reverse" : ""
+                        }`}
+                      >
+                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                          <IconComponent className="h-5 w-5 text-primary" />
+                        </div>
+                        <div className="flex-1">
+                          <span className="text-xs font-mono text-primary uppercase tracking-wider">
+                            {achievement.type} • {achievement.year}
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex-1">
-                        <span className="text-xs font-mono text-primary uppercase tracking-wider">
-                          {achievement.type} • {achievement.year}
-                        </span>
-                      </div>
+                      <h3 className="text-lg font-semibold text-foreground mt-3">
+                        {achievement.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        {achievement.description}
+                      </p>
                     </div>
-                    <h3 className="text-lg font-semibold text-foreground mt-3">
-                      {achievement.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      {achievement.description}
-                    </p>
                   </div>
-                </div>
 
-                {/* Spacer for alternating layout */}
-                <div className="hidden md:block md:w-[calc(50%-2rem)]" />
-              </motion.div>
-            ))}
+                  {/* Spacer for alternating layout */}
+                  <div className="hidden md:block md:w-[calc(50%-2rem)]" />
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
