@@ -12,9 +12,9 @@ const techStack = [
   "Machine Learning",
   "Web Development",
   "App Development",
-  "Artificial Intelligence",
-  "Blockchain",
-  "Systems Programming",
+  "Game Development",
+  "Cyber Security",
+  "Systems Design",
 ];
 
 export function Hero() {

@@ -5,8 +5,8 @@ import { Logo } from "@/components/logo";
 
 export default function Loading() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
+    <div className="fixed inset-0 min-h-screen w-full flex items-center justify-center bg-background px-4">
+      <div className="text-center max-w-full">
         <motion.div
           animate={{
             scale: [1, 1.1, 1],
@@ -41,7 +41,9 @@ export default function Loading() {
             />
           ))}
         </motion.div>
-        <p className="mt-4 text-sm text-muted-foreground font-mono">Loading...</p>
+        <p className="mt-4 text-sm text-muted-foreground font-mono">
+          Loading...
+        </p>
       </div>
     </div>
   );

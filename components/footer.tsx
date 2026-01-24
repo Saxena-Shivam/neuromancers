@@ -32,7 +32,7 @@ const footerLinks = {
   ],
   connect: [
     { label: "Join Us", href: "/join" },
-    { label: "Contact", href: "#contact" },
+    { label: "Contact", href: "/contact" },
     { label: "Alumni Network", href: "/team#alumni" },
     { label: "FAQ", href: "/faq" },
   ],

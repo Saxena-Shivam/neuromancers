@@ -38,7 +38,7 @@ const faqs = [
 
 export default function FAQPage() {
   return (
-    <div className="min-h-screen bg-black text-white pt-24 pb-16">
+    <div className="min-h-screen bg-background text-foreground pt-24 pb-16">
       <div className="max-w-3xl mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -49,7 +49,7 @@ export default function FAQPage() {
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
             Frequently Asked Questions
           </h1>
-          <p className="text-gray-400 text-lg">
+          <p className="text-muted-foreground text-lg">
             Have questions? We have answers.
           </p>
         </motion.div>
@@ -62,12 +62,12 @@ export default function FAQPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="border border-gray-800 rounded-lg p-6 hover:border-cyan-500/50 transition-all duration-300 bg-gray-900/50"
+              className="border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300 bg-card"
             >
-              <h3 className="text-xl font-semibold mb-3 text-cyan-400">
+              <h3 className="text-xl font-semibold mb-3 text-primary">
                 {faq.question}
               </h3>
-              <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
+              <p className="text-foreground/80 leading-relaxed">{faq.answer}</p>
             </motion.div>
           ))}
         </div>
@@ -79,10 +79,10 @@ export default function FAQPage() {
           transition={{ delay: 0.6 }}
           className="mt-12 text-center"
         >
-          <p className="text-gray-400 mb-4">Didn't find your answer?</p>
+          <p className="text-muted-foreground mb-4">Didn't find your answer?</p>
           <Link
             href="/contact"
-            className="inline-block px-6 py-3 bg-cyan-500/20 border border-cyan-500 text-cyan-400 rounded-lg hover:bg-cyan-500/30 transition-all duration-300 font-semibold"
+            className="inline-block px-6 py-3 bg-primary/20 border border-primary text-primary rounded-lg hover:bg-primary/30 dark:hover:text-primary transition-all duration-300 font-semibold"
           >
             Contact Us
           </Link>
