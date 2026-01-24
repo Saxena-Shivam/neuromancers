@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import {
   Github,
@@ -58,6 +59,13 @@ const socialLinks = [
 ];
 
 export function Footer() {
+  const router = useRouter();
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    router.push("/under-development");
+  };
+
   return (
     <footer className="relative bg-card border-t border-border">
       {/* Gradient overlay */}
@@ -152,7 +160,10 @@ export function Footer() {
                 Get updates on events, workshops, and opportunities.
               </p>
             </div>
-            <form className="flex gap-2 w-full lg:w-auto">
+            <form
+              className="flex gap-2 w-full lg:w-auto"
+              onSubmit={handleSubscribe}
+            >
               <Input
                 type="email"
                 placeholder="Enter your email"

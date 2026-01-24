@@ -4,7 +4,7 @@ export const secretary: TeamMember = {
   id: 14,
   name: "Suvansh Sharma",
   role: "Secretary",
-  domain: "Competitive Programming (CP);Machine Learning / AI",
+  domain: "Competitive Programming (CP) Machine Learning / AI",
   image: "/profile/WhatsApp Image 2026-01-24 at 22.47.28 - Suvansh Sharma.jpeg",
   email: "23ee01058@iitbbs.ac.in",
   linkedin: "https://www.linkedin.com/in/suvansh-sharma-3516a4227/",
@@ -18,7 +18,7 @@ export const governors: TeamMember[] = [
     name: "Aaditya Sharma",
     role: "Governor",
     domain:
-      "Competitive Programming (CP);Machine Learning / AI;System Design;Generative AI",
+      "Competitive Programming (CP) Machine Learning / AI System Design Generative AI",
     image: "/profile/new_pfp - Aaditya Sharma.jpeg",
     email: "23ee01001@iitbbs.ac.in",
     linkedin: "https://www.linkedin.com/in/aaditya-sharma-061bb2255/",
@@ -29,7 +29,7 @@ export const governors: TeamMember[] = [
     id: 15,
     name: "Unmilan Das",
     role: "Governor",
-    domain: "Competitive Programming (CP);Machine Learning / AI;Generative AI",
+    domain: "Competitive Programming (CP) Machine Learning / AI Generative AI",
     image: "/profile/WhatsApp Image 2026-01-24 at 23.02.10 - Unmilan.jpeg",
     email: "unmilan17@gmail.com",
     linkedin: "https://www.linkedin.com/in/unmilan-das-b07905295/",
@@ -45,13 +45,13 @@ export interface DomainLeadGroup {
 
 export const domainLeads: DomainLeadGroup[] = [
   {
-    category: "Competitive Programming Leaders",
+    category: "Competitive Programming",
     members: [
       {
         id: 1,
         name: "Utkarsh Verma",
         role: "CP Expert",
-        domain: "Competitive Programming (CP);Web Development",
+        domain: "Competitive Programming (CP) Web Development",
         image: "/profile/IMG-20231112-WA0012 - UTKARSH VERMA.jpg",
         email: "utkarshver11@gmail.com",
         linkedin: "https://www.linkedin.com/in/utkarsh-verma-819115316/",
@@ -61,13 +61,13 @@ export const domainLeads: DomainLeadGroup[] = [
     ],
   },
   {
-    category: "Web Development Leaders",
+    category: "Web Development",
     members: [
       {
         id: 2,
         name: "Hetvi Patel",
-        role: "Web Development Lead",
-        domain: "Competitive Programming (CP);Web Development",
+        role: "Web Development",
+        domain: "Competitive Programming (CP) Web Development",
         image: "/profile/Pic - Hetvi Patel.jpeg",
         email: "24ce01068@iitbbs.ac.in",
         linkedin: "https://www.linkedin.com/in/hetvi-patel-ab6a40323/",
@@ -79,7 +79,7 @@ export const domainLeads: DomainLeadGroup[] = [
         name: "Prashant Sharma",
         role: "Full Stack Developer",
         domain:
-          "Competitive Programming (CP);Web Development;Machine Learning / AI",
+          "Competitive Programming (CP) Web Development;Machine Learning / AI",
         image: "/profile/IMG_20260124_192349 - PRASHANT SHARMA.jpg",
         email: "24cs01058@iitbbs.ac.in",
         linkedin: "https://www.linkedin.com/in/prashant-sharma-61b0b8338",
@@ -89,14 +89,14 @@ export const domainLeads: DomainLeadGroup[] = [
     ],
   },
   {
-    category: "Full Stack & System Design",
+    category: "App Development & System Design",
     members: [
       {
         id: 4,
         name: "Kadambari Siddarth Subramanyam",
         role: "Full Stack & Systems Lead",
         domain:
-          "Competitive Programming (CP);Web Development;App Development;System Design",
+          "Competitive Programming (CP) Web Development App Development System Design",
         image:
           "/profile/Screenshot_2025-05-12-17-30-05-94_6012fa4d4ddec268fc5c7112cbb265e7_Original - KADAMBARI SIDDARTH SUBRAMANYAM.jpeg",
         email: "23cs01027@iitbbs.ac.in",
@@ -109,7 +109,7 @@ export const domainLeads: DomainLeadGroup[] = [
         id: 10,
         name: "Devesh Kumar",
         role: "System Design Expert",
-        domain: "Competitive Programming (CP);System Design",
+        domain: "Competitive Programming (CP) System Design",
         image: "/profile/1513 - Devesh kumar.jpg",
         email: "devesh006kumar@gmail.com",
         linkedin: "https://www.linkedin.com/in/devesh-kumar-81aa73317/",
@@ -126,7 +126,7 @@ export const domainLeads: DomainLeadGroup[] = [
         name: "Anmol Kamath",
         role: "ML & CP Lead",
         domain:
-          "Competitive Programming (CP);Machine Learning / AI;Data Science;System Design;Generative AI",
+          "Competitive Programming (CP) Machine Learning / AI Data Science System Design Generative AI",
         image: "/profile/Anmol_Formal_Picture - KAMATH ANMOL.jpeg",
         email: "24ee01038@iitbbs.ac.in",
         linkedin:
@@ -138,7 +138,7 @@ export const domainLeads: DomainLeadGroup[] = [
         id: 9,
         name: "Pathya Taya",
         role: "Member",
-        domain: "Competitive Programming (CP);Machine Learning / AI",
+        domain: "Competitive Programming (CP) Machine Learning / AI",
         image: "/profile/photophoto - Pathya Taya.jpeg",
         email: "pathyataya@gmail.com",
         linkedin: "https://www.linkedin.com/in/pathya",
@@ -167,7 +167,7 @@ export const members: TeamMember[] = [
     name: "Yelikatte Bharath",
     role: "Member",
     domain:
-      "Competitive Programming (CP);Web Development;Machine Learning / AI",
+      "Competitive Programming (CP) Web Development;Machine Learning / AI",
     image: "/profile/photo - Bharath Yelikatte.jpeg",
     email: "25cs01081@iitbbs.ac.in",
     linkedin: "https://www.linkedin.com/in/bharath-yelikatte-41943a377/",
@@ -179,7 +179,7 @@ export const members: TeamMember[] = [
     name: "NANUVALA SRI ADHITHYA",
     role: "Member",
     domain:
-      "Competitive Programming (CP);Web Development;Machine Learning / AI;Data Science;System Design",
+      "Competitive Programming (CP) Web Development;Machine Learning / AI Data Science;System Design",
     image: "/profile/profileimage - NANUVALA SRI ADHITHYA.jpeg",
     email: "25cs01055@iitbbs.ac.in",
     linkedin: "https://www.linkedin.com/in/sri-adhithya-n-51b90439b/",
@@ -190,7 +190,7 @@ export const members: TeamMember[] = [
     id: 11,
     name: "Abhishek Singh",
     role: "Member",
-    domain: "Competitive Programming (CP);Web Development",
+    domain: "Competitive Programming (CP) Web Development",
     image: "/profile/Photos - Abhishek Singh.jpeg",
     email: "25cs01002@iitbbs.ac.in",
     linkedin: "https://www.linkedin.com/in/abhishek-singh-84b83739b/",
@@ -213,7 +213,7 @@ export const members: TeamMember[] = [
     name: "Jayaditya Sahu",
     role: "ML & Data Science Lead",
     domain:
-      "Web Development;App Development;Machine Learning / AI;Data Science",
+      "Web Development App Development Machine Learning / AI Data Science",
     image:
       "/profile/WhatsApp Image 2026-01-24 at 8.37.00 PM - Jayaditya Sahu.jpeg",
     email: "23CS01025@iitbbs.ac.in",
