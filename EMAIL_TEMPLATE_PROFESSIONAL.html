@@ -1,0 +1,399 @@
+<!doctype html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:v="urn:schemas-microsoft-com:vml"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>New Inquiry - Neuromancers</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+          Helvetica, Arial, sans-serif;
+        background-color: #f4f6f9;
+        line-height: 1.6;
+        color: #2c3e50;
+      }
+
+      .email-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+      }
+
+      /* Header */
+      .header {
+        background: linear-gradient(135deg, #00d9ff 0%, #00d9ff 100%);
+        padding: 40px 30px;
+        text-align: center;
+        border-bottom: 4px solid #00b8d4;
+      }
+
+      .header-content h1 {
+        color: #ffffff;
+        font-size: 28px;
+        font-weight: 700;
+        margin: 0;
+        letter-spacing: -0.5px;
+      }
+
+      .header-content p {
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 14px;
+        margin: 10px 0 0 0;
+        font-weight: 500;
+      }
+
+      /* Main Content */
+      .main-content {
+        padding: 40px 30px;
+      }
+
+      .greeting {
+        font-size: 16px;
+        color: #2c3e50;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      .greeting strong {
+        color: #00d9ff;
+        font-weight: 600;
+      }
+
+      /* Sender Info Card */
+      .sender-card {
+        background: linear-gradient(135deg, #f8fbff 0%, #f0f7ff 100%);
+        border-left: 4px solid #00d9ff;
+        padding: 24px;
+        margin: 30px 0;
+        border-radius: 4px;
+      }
+
+      .sender-card-title {
+        font-size: 12px;
+        font-weight: 700;
+        color: #00d9ff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+      }
+
+      .sender-name {
+        font-size: 18px;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 12px;
+      }
+
+      .sender-detail {
+        font-size: 13px;
+        color: #555;
+        margin-bottom: 10px;
+        line-height: 1.6;
+      }
+
+      .sender-detail span {
+        font-weight: 600;
+        color: #2c3e50;
+      }
+
+      /* Details Table */
+      .details-section {
+        margin: 30px 0;
+      }
+
+      .section-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: #2c3e50;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #f0f0f0;
+      }
+
+      .details-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      .details-table tr {
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .details-table td {
+        padding: 14px 0;
+        font-size: 13px;
+      }
+
+      .details-table .label {
+        font-weight: 600;
+        color: #2c3e50;
+        width: 130px;
+        vertical-align: top;
+      }
+
+      .details-table .value {
+        color: #555;
+        word-break: break-word;
+      }
+
+      .details-table a {
+        color: #00d9ff;
+        text-decoration: none;
+        font-weight: 500;
+        word-break: break-all;
+      }
+
+      .details-table a:hover {
+        text-decoration: underline;
+      }
+
+      /* Message Box */
+      .message-section {
+        margin: 30px 0;
+        background: #fafbfc;
+        border: 1px solid #e8eef5;
+        border-radius: 4px;
+        padding: 24px;
+      }
+
+      .message-label {
+        font-size: 12px;
+        font-weight: 700;
+        color: #00d9ff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+      }
+
+      .message-content {
+        font-size: 14px;
+        color: #2c3e50;
+        line-height: 1.8;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+
+      /* CTA Button */
+      .cta-container {
+        text-align: center;
+        margin: 40px 0;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: linear-gradient(135deg, #00d9ff 0%, #00b8d4 100%);
+        color: #ffffff;
+        text-decoration: none;
+        padding: 14px 36px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        border: 2px solid #00d9ff;
+        box-shadow: 0 2px 8px rgba(0, 217, 255, 0.2);
+      }
+
+      .cta-button:hover {
+        background: linear-gradient(135deg, #00b8d4 0%, #0096a8 100%);
+        border-color: #0096a8;
+      }
+
+      /* Footer */
+      .footer {
+        background-color: #f4f6f9;
+        padding: 30px;
+        text-align: center;
+        border-top: 1px solid #e8eef5;
+        font-size: 12px;
+        color: #888;
+      }
+
+      .footer-text {
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .footer-divider {
+        width: 60px;
+        height: 2px;
+        background: #e8eef5;
+        margin: 15px auto;
+      }
+
+      /* Responsive */
+      @media only screen and (max-width: 600px) {
+        .email-container {
+          width: 100% !important;
+        }
+
+        .header {
+          padding: 30px 20px !important;
+        }
+
+        .header-content h1 {
+          font-size: 24px !important;
+        }
+
+        .main-content {
+          padding: 25px 20px !important;
+        }
+
+        .sender-card {
+          padding: 18px !important;
+          margin: 20px 0 !important;
+        }
+
+        .sender-detail a {
+          word-break: break-all !important;
+          display: inline-block !important;
+          max-width: 100% !important;
+        }
+
+        .details-table .label {
+          width: 100% !important;
+          font-weight: 700 !important;
+          margin-bottom: 5px !important;
+          display: block !important;
+          padding-bottom: 5px !important;
+        }
+
+        .details-table td {
+          padding: 10px 0 !important;
+          display: block !important;
+        }
+
+        .details-table .value {
+          display: block !important;
+          word-break: break-all;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+        }
+
+        .details-table a {
+          word-break: break-all !important;
+          display: inline-block !important;
+          max-width: 100% !important;
+        }
+
+        .message-section {
+          padding: 16px !important;
+          margin: 20px 0 !important;
+        }
+
+        .section-title {
+          font-size: 13px !important;
+          margin-bottom: 15px !important;
+        }
+
+        .cta-button {
+          display: block !important;
+          width: 100% !important;
+          padding: 12px 20px !important;
+          font-size: 13px !important;
+        }
+
+        .footer {
+          padding: 20px !important;
+          font-size: 11px !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <!-- Header -->
+      <div class="header">
+        <div class="header-content">
+          <h1>New Inquiry Received</h1>
+          <p>Neuromancers | IIT Bhubaneswar</p>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Greeting -->
+        <div class="greeting">
+          Hello Team,<br /><br />
+          A new inquiry has been submitted through the Neuromancers website.
+          Please review the details below and respond accordingly.
+        </div>
+
+        <!-- Inquiry Details -->
+        <div class="details-section">
+          <div class="section-title">Inquiry Details</div>
+          <table class="details-table">
+            <tr>
+              <td class="label">Name</td>
+              <td class="value">{{from_name}}</td>
+            </tr>
+            <tr>
+              <td class="label">Email</td>
+              <td class="value">
+                <a href="mailto:{{from_email}}">{{from_email}}</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="label">Phone</td>
+              <td class="value">{{phone}}</td>
+            </tr>
+            <tr>
+              <td class="label">Company</td>
+              <td class="value">{{company}}</td>
+            </tr>
+            <tr>
+              <td class="label">Type</td>
+              <td class="value">{{inquiry_type}}</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Message -->
+        <div class="message-section">
+          <div class="message-label">Message</div>
+          <div class="message-content">{{message}}</div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-container">
+          <a
+            href="mailto:{{from_email}}?subject=Re: Your Neuromancers Inquiry"
+            class="cta-button"
+            >Reply to {{from_name}}</a
+          >
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <div class="footer-divider"></div>
+        <p class="footer-text">
+          <strong>Neuromancers</strong><br />
+          Programming Society | IIT Bhubaneswar<br />
+          Argul, Odisha 752050<br /><br />
+          <em
+            >This is an automated message from the Neuromancers contact form.<br />
+            © 2024-2025 Neuromancers. All rights reserved.</em
+          >
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

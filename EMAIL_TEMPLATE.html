@@ -3,212 +3,253 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      body {
-        font-family:
-          system-ui,
-          -apple-system,
-          sans-serif;
+    <title>New Inquiry - Neuromancers</title>
+    <style type="text/css">
+      * {
         margin: 0;
         padding: 0;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
         background-color: #f5f5f5;
+        color: #333;
       }
-      .container {
+
+      .email-container {
         max-width: 600px;
-        margin: 20px auto;
+        margin: 0 auto;
         background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
       }
+
       .header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 30px 20px;
-        color: white;
+        background-color: #1a1a1a;
+        padding: 30px;
         text-align: center;
+        border-bottom: 3px solid #00d9ff;
       }
+
       .header h1 {
-        margin: 0;
+        color: #ffffff;
         font-size: 24px;
         font-weight: bold;
       }
-      .content {
-        padding: 30px 20px;
+
+      .header p {
+        color: #cccccc;
+        font-size: 12px;
+        margin-top: 5px;
+      }
+
+      .main-content {
+        padding: 30px;
+      }
+
+      .greeting {
         font-size: 14px;
         color: #333;
-      }
-      .intro {
-        font-size: 14px;
-        color: #555;
-        margin-bottom: 30px;
+        margin-bottom: 25px;
         line-height: 1.6;
       }
-      .message-box {
-        margin: 30px 0;
-        padding: 20px;
-        border-top: 1px dashed #ddd;
-        border-bottom: 1px dashed #ddd;
-        background-color: #f9f9f9;
-      }
-      .message-header {
-        display: flex;
-        align-items: flex-start;
-        gap: 15px;
-      }
-      .avatar {
-        font-size: 32px;
-        padding: 10px 15px;
-        background-color: #e3f2fd;
-        border-radius: 5px;
-        flex-shrink: 0;
-      }
-      .sender-info {
-        flex: 1;
-      }
-      .sender-name {
-        font-size: 18px;
+
+      .section-title {
+        font-size: 13px;
         font-weight: bold;
-        color: #2c3e50;
-        margin: 0 0 5px 0;
+        color: #000;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #ddd;
       }
-      .sender-details {
-        font-size: 12px;
-        color: #999;
-        margin: 5px 0;
-        line-height: 1.6;
+
+      .details-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 25px;
       }
-      .sender-details strong {
+
+      .details-table tr {
+        border-bottom: 1px solid #eee;
+      }
+
+      .details-table td {
+        padding: 12px 0;
+        font-size: 13px;
+      }
+
+      .details-table .label {
+        font-weight: bold;
+        width: 100px;
+        color: #000;
+      }
+
+      .details-table .value {
         color: #555;
+        word-break: break-all;
       }
+
+      .details-table a {
+        color: #0066cc;
+        text-decoration: none;
+      }
+
+      .message-section {
+        margin: 25px 0;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-left: 3px solid #00d9ff;
+      }
+
+      .message-label {
+        font-size: 12px;
+        font-weight: bold;
+        color: #000;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+
       .message-content {
-        font-size: 15px;
-        line-height: 1.8;
-        color: #2c3e50;
-        margin: 15px 0 0 0;
+        font-size: 13px;
+        color: #333;
+        line-height: 1.6;
         white-space: pre-wrap;
         word-wrap: break-word;
       }
-      .details-table {
-        width: 100%;
-        margin: 20px 0;
-        border-collapse: collapse;
-      }
-      .details-table td {
-        padding: 12px;
-        border-bottom: 1px solid #eee;
-      }
-      .details-table .label {
-        font-weight: bold;
-        color: #2c3e50;
-        width: 120px;
-        background-color: #f5f5f5;
-      }
-      .details-table .value {
-        color: #555;
-      }
-      .footer {
-        background-color: #f9f9f9;
-        padding: 20px;
+
+      .cta-container {
         text-align: center;
-        font-size: 12px;
-        color: #999;
-        border-top: 1px solid #eee;
+        margin: 30px 0;
       }
+
       .cta-button {
         display: inline-block;
-        margin-top: 20px;
-        padding: 12px 30px;
-        background-color: #667eea;
-        color: white;
+        background-color: #00d9ff;
+        color: #000;
         text-decoration: none;
-        border-radius: 5px;
+        padding: 12px 30px;
+        border-radius: 3px;
+        font-size: 13px;
         font-weight: bold;
-        font-size: 14px;
+        text-transform: uppercase;
       }
-      .cta-button:hover {
-        background-color: #764ba2;
+
+      .footer {
+        background-color: #f5f5f5;
+        padding: 25px 30px;
+        text-align: center;
+        border-top: 1px solid #ddd;
+        font-size: 11px;
+        color: #666;
+      }
+
+      .footer-divider {
+        width: 50px;
+        height: 1px;
+        background-color: #ddd;
+        margin: 12px auto;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .main-content {
+          padding: 20px !important;
+        }
+
+        .header {
+          padding: 20px !important;
+        }
+
+        .header h1 {
+          font-size: 20px !important;
+        }
+
+        .details-table .label {
+          display: block !important;
+          font-weight: bold !important;
+          margin-bottom: 3px !important;
+        }
+
+        .details-table .value {
+          display: block !important;
+          word-break: break-all !important;
+        }
+
+        .cta-button {
+          display: block !important;
+          width: 100% !important;
+          padding: 10px !important;
+        }
+
+        .footer {
+          padding: 15px 20px !important;
+          font-size: 10px !important;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <!-- Header -->
+    <div class="email-container">
       <div class="header">
-        <h1>📬 New Inquiry from Neuromancers</h1>
+        <h1>New Inquiry Received</h1>
+        <p>Neuromancers | IIT Bhubaneswar</p>
       </div>
 
-      <!-- Content -->
-      <div class="content">
-        <div class="intro">
-          <p>
-            A new message has been received from <strong>{{from_name}}</strong>.
-            Please review the inquiry below and respond at your earliest
-            convenience.
-          </p>
+      <div class="main-content">
+        <div class="greeting">
+          Hello Team,<br /><br />
+          A new inquiry has been submitted through the Neuromancers website.
+          Please review the details below and respond accordingly.
         </div>
 
-        <!-- Details Table -->
-        <table class="details-table">
-          <tr>
-            <td class="label">From:</td>
-            <td class="value">{{from_name}}</td>
-          </tr>
-          <tr>
-            <td class="label">Email:</td>
-            <td class="value">
-              <a href="mailto:{{from_email}}">{{from_email}}</a>
-            </td>
-          </tr>
-          <tr>
-            <td class="label">Phone:</td>
-            <td class="value">{{phone}}</td>
-          </tr>
-          <tr>
-            <td class="label">Company:</td>
-            <td class="value">{{company}}</td>
-          </tr>
-          <tr>
-            <td class="label">Type:</td>
-            <td class="value">{{inquiry_type}}</td>
-          </tr>
-        </table>
+        <div>
+          <div class="section-title">Inquiry Details</div>
+          <table class="details-table">
+            <tr>
+              <td class="label">Name</td>
+              <td class="value">{{from_name}}</td>
+            </tr>
+            <tr>
+              <td class="label">Email</td>
+              <td class="value">
+                <a href="mailto:{{from_email}}">{{from_email}}</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="label">Phone</td>
+              <td class="value">{{phone}}</td>
+            </tr>
+            <tr>
+              <td class="label">Company</td>
+              <td class="value">{{company}}</td>
+            </tr>
+            <tr>
+              <td class="label">Type</td>
+              <td class="value">{{inquiry_type}}</td>
+            </tr>
+          </table>
+        </div>
 
-        <!-- Message Box -->
-        <div class="message-box">
-          <div class="message-header">
-            <div class="avatar">👤</div>
-            <div class="sender-info">
-              <div class="sender-name">{{from_name}}</div>
-              <div class="sender-details">
-                <strong>Email:</strong> {{from_email}}<br />
-                <strong>Company:</strong> {{company}}<br />
-                <strong>Inquiry Type:</strong> {{inquiry_type}}
-              </div>
-            </div>
-          </div>
+        <div class="message-section">
+          <div class="message-label">Message</div>
           <div class="message-content">{{message}}</div>
         </div>
 
-        <!-- CTA -->
-        <div style="text-align: center; margin-top: 30px">
-          <p style="color: #666; font-size: 13px">
-            Click the button below to reply to this inquiry:
-          </p>
+        <div class="cta-container">
           <a
             href="mailto:{{from_email}}?subject=Re: Your Neuromancers Inquiry"
             class="cta-button"
+            >Reply to {{from_name}}</a
           >
-            Reply to {{from_name}}
-          </a>
         </div>
       </div>
 
-      <!-- Footer -->
       <div class="footer">
+        <div class="footer-divider"></div>
         <p>
-          This is an automated message from the Neuromancers website contact
-          form.<br />
-          © {{current_year}} Neuromancers | IIT Bhubaneswar Programming Society
+          <strong>Neuromancers</strong><br />
+          Programming Society | IIT Bhubaneswar<br />
+          Argul, Odisha 752050<br /><br />
+          This is an automated message from the Neuromancers contact form.<br />
+          © 2024-2025 Neuromancers. All rights reserved.
         </p>
       </div>
     </div>
