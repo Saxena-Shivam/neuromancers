@@ -4,51 +4,7 @@ import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { X, ZoomIn } from "lucide-react";
 import Image from "next/image";
-
-const galleryImages = [
-  {
-    id: 1,
-    src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
-    alt: "Hackathon event",
-    title: "Annual Hackathon 2025",
-    category: "Hackathon",
-  },
-  {
-    id: 2,
-    src: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=600&fit=crop",
-    alt: "Team meetup",
-    title: "Team Building Session",
-    category: "Meetup",
-  },
-  {
-    id: 3,
-    src: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600&fit=crop",
-    alt: "Workshop session",
-    title: "ML Workshop",
-    category: "Workshop",
-  },
-  {
-    id: 4,
-    src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=600&fit=crop",
-    alt: "Coding competition",
-    title: "CP Contest Finals",
-    category: "Competition",
-  },
-  {
-    id: 5,
-    src: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop",
-    alt: "Guest lecture",
-    title: "Industry Expert Talk",
-    category: "Guest Lecture",
-  },
-  {
-    id: 6,
-    src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop",
-    alt: "Team collaboration",
-    title: "Project Showcase",
-    category: "Exhibition",
-  },
-];
+import { galleryImages } from "@/data/gallery";
 
 export function Gallery() {
   const ref = useRef(null);
@@ -80,57 +36,68 @@ export function Gallery() {
         </motion.div>
 
         {/* Masonry grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {galleryImages.map((image, index) => (
-            <motion.div
-              key={image.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1 * index }}
-              className={`relative group cursor-pointer overflow-hidden rounded-2xl ${
-                index === 0 || index === 5 ? "md:row-span-2" : ""
-              }`}
-              onClick={() => setSelectedImage(image)}
-            >
-              <div
-                className={`relative ${
-                  index === 0 || index === 5
-                    ? "aspect-[4/5]"
-                    : "aspect-[4/3]"
+        {galleryImages.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {galleryImages.map((image, index) => (
+              <motion.div
+                key={image.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.1 * index }}
+                className={`relative group cursor-pointer overflow-hidden rounded-2xl ${
+                  index === 0 || index === 5 ? "md:row-span-2" : ""
                 }`}
+                onClick={() => setSelectedImage(image)}
               >
-                <Image
-                  src={image.src || "/placeholder.svg"}
-                  alt={image.alt}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  crossOrigin="anonymous"
-                />
+                <div
+                  className={`relative ${
+                    index === 0 || index === 5 ? "aspect-[4/5]" : "aspect-[4/3]"
+                  }`}
+                >
+                  <Image
+                    src={image.src || "/placeholder.svg"}
+                    alt={image.alt}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    crossOrigin="anonymous"
+                  />
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                {/* Content */}
-                <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-xs font-mono text-primary uppercase tracking-wider">
-                    {image.category}
-                  </span>
-                  <h3 className="text-lg font-semibold text-foreground mt-1">
-                    {image.title}
-                  </h3>
+                  {/* Content */}
+                  <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="text-xs font-mono text-primary uppercase tracking-wider">
+                      {image.category}
+                    </span>
+                    <h3 className="text-lg font-semibold text-foreground mt-1">
+                      {image.title}
+                    </h3>
+                  </div>
+
+                  {/* Zoom icon */}
+                  <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background/80 backdrop-blur flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <ZoomIn className="h-5 w-5 text-foreground" />
+                  </div>
+
+                  {/* Glow border */}
+                  <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary/50 transition-colors" />
                 </div>
-
-                {/* Zoom icon */}
-                <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background/80 backdrop-blur flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <ZoomIn className="h-5 w-5 text-foreground" />
-                </div>
-
-                {/* Glow border */}
-                <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary/50 transition-colors" />
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-center py-12"
+          >
+            <p className="text-muted-foreground text-lg">
+              No glimpses are available.
+            </p>
+          </motion.div>
+        )}
       </div>
 
       {/* Lightbox */}
