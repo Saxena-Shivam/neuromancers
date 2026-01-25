@@ -62,7 +62,16 @@ export function TeamMemberCard({
             alt={member.name}
             fill
             className="object-cover"
-            crossOrigin="anonymous"
+            sizes={
+              variant === "large"
+                ? "128px"
+                : variant === "medium"
+                  ? "96px"
+                  : "64px"
+            }
+            quality={80}
+            loading={index < 3 ? "eager" : "lazy"}
+            priority={index < 3}
           />
           {/* Glow effect on hover */}
           <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
