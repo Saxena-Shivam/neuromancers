@@ -194,11 +194,11 @@ export default function ProjectsPage() {
                       <div className="flex items-center gap-4">
                         <div className="flex items-center gap-1 text-sm text-muted-foreground">
                           <Star className="h-4 w-4 fill-current text-yellow-500" />
-                          <span>{project.stars}</span>
+                          <span>{project.stars ?? 0}</span>
                         </div>
                         <div className="flex items-center gap-1 text-sm text-muted-foreground">
                           <GitFork className="h-4 w-4" />
-                          <span>{project.forks}</span>
+                          <span>{project.forks ?? 0}</span>
                         </div>
                         <div className="flex items-center gap-1 text-sm text-muted-foreground">
                           <Calendar className="h-4 w-4" />

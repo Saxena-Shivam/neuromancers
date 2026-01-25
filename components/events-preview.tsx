@@ -70,62 +70,70 @@ export function EventsPreview() {
 
         {/* Events grid */}
         <div className="grid lg:grid-cols-3 gap-6 mb-12">
-          {upcomingPreview.map((event, index) => (
-            <motion.div
-              key={event.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1 * index }}
-              className="group relative p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300"
-            >
-              {/* Event type badge */}
-              <Badge
-                variant="outline"
-                className={getEventTypeColor(event.type)}
+          {upcomingPreview.length > 0 ? (
+            upcomingPreview.map((event, index) => (
+              <motion.div
+                key={event.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.1 * index }}
+                className="group relative p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300"
               >
-                {event.type}
-              </Badge>
+                {/* Event type badge */}
+                <Badge
+                  variant="outline"
+                  className={getEventTypeColor(event.type)}
+                >
+                  {event.type}
+                </Badge>
 
-              {/* Content */}
-              <h3 className="mt-4 text-xl font-semibold text-foreground group-hover:text-primary dark:group-hover:text-primary transition-colors">
-                {event.title}
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-2">
-                {event.description}
+                {/* Content */}
+                <h3 className="mt-4 text-xl font-semibold text-foreground group-hover:text-primary dark:group-hover:text-primary transition-colors">
+                  {event.title}
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-2">
+                  {event.description}
+                </p>
+
+                {/* Meta info */}
+                <div className="mt-4 space-y-2">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Calendar className="h-4 w-4 text-primary" />
+                    <span>{event.date}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Clock className="h-4 w-4 text-primary" />
+                    <span>{event.time}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <MapPin className="h-4 w-4 text-primary" />
+                    <span className="truncate">{event.location}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Users className="h-4 w-4 text-primary" />
+                    <span>{event.attendees}+ attending</span>
+                  </div>
+                </div>
+
+                {/* Register button */}
+                <Button
+                  asChild
+                  className="mt-6 w-full bg-gradient-to-r from-neon-cyan to-neon-green text-background hover:opacity-90"
+                >
+                  <Link href={`/events/${event.id}`}>Register Now</Link>
+                </Button>
+
+                {/* Hover glow */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+              </motion.div>
+            ))
+          ) : (
+            <div className="col-span-full flex flex-col items-center justify-center py-16">
+              <p className="text-lg text-muted-foreground">
+                No events are available
               </p>
-
-              {/* Meta info */}
-              <div className="mt-4 space-y-2">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Calendar className="h-4 w-4 text-primary" />
-                  <span>{event.date}</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Clock className="h-4 w-4 text-primary" />
-                  <span>{event.time}</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <MapPin className="h-4 w-4 text-primary" />
-                  <span className="truncate">{event.location}</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Users className="h-4 w-4 text-primary" />
-                  <span>{event.attendees}+ attending</span>
-                </div>
-              </div>
-
-              {/* Register button */}
-              <Button
-                asChild
-                className="mt-6 w-full bg-gradient-to-r from-neon-cyan to-neon-green text-background hover:opacity-90"
-              >
-                <Link href={`/events/${event.id}`}>Register Now</Link>
-              </Button>
-
-              {/* Hover glow */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-            </motion.div>
-          ))}
+            </div>
+          )}
         </div>
 
         {/* Past events */}

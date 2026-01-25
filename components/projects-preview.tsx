@@ -51,80 +51,88 @@ export function ProjectsPreview() {
 
         {/* Projects grid */}
         <div className="grid md:grid-cols-2 gap-6">
-          {previewProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1 * index }}
-              className="group relative p-6 rounded-2xl bg-background border border-border hover:border-primary/50 transition-all duration-300"
-            >
-              {/* Featured badge */}
-              {project.featured && (
-                <div className="absolute top-4 right-4">
-                  <Badge
-                    variant="secondary"
-                    className="bg-primary/10 text-primary border-primary/20"
-                  >
-                    Featured
-                  </Badge>
+          {previewProjects.length > 0 ? (
+            previewProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.1 * index }}
+                className="group relative p-6 rounded-2xl bg-background border border-border hover:border-primary/50 transition-all duration-300"
+              >
+                {/* Featured badge */}
+                {project.featured && (
+                  <div className="absolute top-4 right-4">
+                    <Badge
+                      variant="secondary"
+                      className="bg-primary/10 text-primary border-primary/20"
+                    >
+                      Featured
+                    </Badge>
+                  </div>
+                )}
+
+                {/* Content */}
+                <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  {project.description}
+                </p>
+
+                {/* Tech stack */}
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 text-xs font-mono rounded-md bg-secondary text-muted-foreground"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-              )}
 
-              {/* Content */}
-              <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                {project.title}
-              </h3>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                {project.description}
-              </p>
-
-              {/* Tech stack */}
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2 py-1 text-xs font-mono rounded-md bg-secondary text-muted-foreground"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              {/* Footer */}
-              <div className="mt-6 pt-4 border-t border-border flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <Github className="h-4 w-4" />
-                    <span>GitHub</span>
-                  </a>
-                  {project.live && (
+                {/* Footer */}
+                <div className="mt-6 pt-4 border-t border-border flex items-center justify-between">
+                  <div className="flex items-center gap-4">
                     <a
-                      href={project.live}
+                      href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
-                      <ExternalLink className="h-4 w-4" />
-                      <span>Live Demo</span>
+                      <Github className="h-4 w-4" />
+                      <span>GitHub</span>
                     </a>
-                  )}
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                        <span>Live Demo</span>
+                      </a>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                    <Star className="h-4 w-4 fill-current text-yellow-500" />
+                    <span>{project.stars}</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                  <Star className="h-4 w-4 fill-current text-yellow-500" />
-                  <span>{project.stars}</span>
-                </div>
-              </div>
 
-              {/* Hover glow */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-            </motion.div>
-          ))}
+                {/* Hover glow */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+              </motion.div>
+            ))
+          ) : (
+            <div className="col-span-full flex flex-col items-center justify-center py-16">
+              <p className="text-lg text-muted-foreground">
+                No projects are available
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </section>
