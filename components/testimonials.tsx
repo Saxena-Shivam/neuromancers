@@ -13,7 +13,8 @@ const testimonials = [
     author: "Priya Sharma",
     role: "SDE @ Google",
     batch: "Batch of 2024",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
   },
   {
     id: 2,
@@ -22,7 +23,8 @@ const testimonials = [
     author: "Rahul Verma",
     role: "ML Researcher @ CMU",
     batch: "Batch of 2023",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
   },
   {
     id: 3,
@@ -31,7 +33,8 @@ const testimonials = [
     author: "Ananya Patel",
     role: "Open Source Engineer @ Mozilla",
     batch: "Batch of 2023",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
   },
 ];
 
@@ -87,6 +90,7 @@ export function Testimonials() {
                     src={testimonial.image || "/placeholder.svg"}
                     alt={testimonial.author}
                     fill
+                    sizes="48px"
                     className="object-cover"
                     crossOrigin="anonymous"
                   />

@@ -143,7 +143,7 @@ export const projects: Project[] = [
         image: "/profile/shivam2.jpeg",
       },
     ],
-    featured: true,
+    featured: false,
     year: "2025",
     image: "/project/image.png",
   },
