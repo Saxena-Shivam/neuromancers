@@ -39,12 +39,18 @@ export function TeamMemberCard({
     small: "w-16 h-16",
   };
 
+  const cardWidths = {
+    large: "w-full max-w-md mx-auto",
+    medium: "w-full max-w-sm mx-auto",
+    small: "w-full max-w-[260px] mx-auto",
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05 }}
-      className={`group relative ${sizes[variant]} rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300`}
+      className={`group relative ${sizes[variant]} ${cardWidths[variant]} rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300`}
     >
       <div className="flex flex-col items-center text-center">
         {/* Image */}
@@ -65,17 +71,27 @@ export function TeamMemberCard({
         {/* Info */}
         <h3
           className={`font-semibold text-foreground group-hover:text-primary transition-colors ${
-            variant === "large" ? "text-xl" : variant === "medium" ? "text-lg" : "text-base"
+            variant === "large"
+              ? "text-xl"
+              : variant === "medium"
+                ? "text-lg"
+                : "text-base"
           }`}
         >
           {member.name}
         </h3>
         <p className="text-sm text-primary mt-1">{member.role}</p>
         {member.domain && (
-          <p className="text-xs text-muted-foreground mt-0.5">{member.domain}</p>
+          <p className="text-xs text-muted-foreground mt-0.5">
+            {member.domain}
+          </p>
         )}
-        {member.bio && variant === "large" && (
-          <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
+        {member.bio && (
+          <p
+            className={`text-muted-foreground mt-3 leading-relaxed ${
+              variant === "large" ? "text-sm" : "text-xs"
+            }`}
+          >
             {member.bio}
           </p>
         )}

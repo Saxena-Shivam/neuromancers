@@ -18,7 +18,7 @@ export const governors: TeamMember[] = [
     name: "Aaditya Sharma",
     role: "Governor",
     domain:
-      "Competitive Programming (CP) Machine Learning / AI System Design Generative AI",
+      "Competitive Programming (CP) Machine Learning / AI System Design Gen AI",
     image: "/profile/new_pfp - Aaditya Sharma.jpeg",
     email: "23ee01001@iitbbs.ac.in",
     linkedin: "https://www.linkedin.com/in/aaditya-sharma-061bb2255/",
@@ -57,6 +57,17 @@ export const domainLeads: DomainLeadGroup[] = [
         linkedin: "https://www.linkedin.com/in/utkarsh-verma-819115316/",
         github: "https://github.com/Vishnu-Utkarsh",
         bio: "ECE '28, Expert @CodeForces, Knight @LeetCode",
+      },
+      {
+        id: 12,
+        name: "Ashmit Chowdhury",
+        role: "Member",
+        domain: "Competitive Programming (CP)",
+        image: "/profile/IMG-20251001-WA0121 - ASHMIT CHOWDHURY.jpg",
+        email: "24cs01010@iitbbs.ac.in",
+        linkedin: "https://www.linkedin.com/in/ashmit-chowdhury",
+        github: "https://github.com/baguvix7",
+        bio: "Avid competitive programmer.",
       },
     ],
   },
@@ -122,6 +133,17 @@ export const domainLeads: DomainLeadGroup[] = [
     category: "Machine Learning & Data Science",
     members: [
       {
+        id: 9,
+        name: "Pathya Taya",
+        role: "Member",
+        domain: "Competitive Programming (CP) Machine Learning / AI",
+        image: "/profile/photophoto - Pathya Taya.jpeg",
+        email: "pathyataya@gmail.com",
+        linkedin: "https://www.linkedin.com/in/pathya",
+        github: "https://github.com/Pathya-Taya",
+        bio: "Third year EE interested in Robotics and ML. Knight on LeetCode. Joining Tech Mahindra as SDE Intern.",
+      },
+      {
         id: 3,
         name: "Anmol Kamath",
         role: "ML & CP Lead",
@@ -134,17 +156,7 @@ export const domainLeads: DomainLeadGroup[] = [
         github: "https://github.com/anmolkamath22",
         bio: "Deep passion for Machine Learning and AI, applying knowledge across multiple domains.",
       },
-      {
-        id: 9,
-        name: "Pathya Taya",
-        role: "Member",
-        domain: "Competitive Programming (CP) Machine Learning / AI",
-        image: "/profile/photophoto - Pathya Taya.jpeg",
-        email: "pathyataya@gmail.com",
-        linkedin: "https://www.linkedin.com/in/pathya",
-        github: "https://github.com/Pathya-Taya",
-        bio: "Third year EE interested in Robotics and ML. Knight on LeetCode. Joining Tech Mahindra as SDE Intern.",
-      },
+
       {
         id: 6,
         name: "JupudI Adarsh",
@@ -197,17 +209,7 @@ export const members: TeamMember[] = [
     github: "https://github.com/AbhishekSingh0705",
     bio: "Focused on DSA in Java and Web Development with efficient, user-friendly applications.",
   },
-  {
-    id: 12,
-    name: "Ashmit Chowdhury",
-    role: "Member",
-    domain: "Competitive Programming (CP)",
-    image: "/profile/IMG-20251001-WA0121 - ASHMIT CHOWDHURY.jpg",
-    email: "24cs01010@iitbbs.ac.in",
-    linkedin: "https://www.linkedin.com/in/ashmit-chowdhury",
-    github: "https://github.com/baguvix7",
-    bio: "Avid competitive programmer.",
-  },
+
   {
     id: 16,
     name: "Jayaditya Sahu",

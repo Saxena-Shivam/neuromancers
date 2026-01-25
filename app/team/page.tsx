@@ -73,7 +73,7 @@ export default function TeamPage() {
                 Leading Neuromancers with vision
               </p>
             </motion.div>
-            <div className="max-w-md mx-auto">
+            <div className="flex justify-center max-w-md mx-auto">
               <TeamMemberCard member={secretary} variant="large" />
             </div>
           </div>
@@ -93,7 +93,7 @@ export default function TeamPage() {
                 The core leadership team
               </p>
             </motion.div>
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {governors.map((governor, index) => (
                 <TeamMemberCard
                   key={governor.id}
@@ -115,7 +115,7 @@ export default function TeamPage() {
               className="text-center mb-12"
             >
               <h2 className="text-2xl md:text-3xl font-bold">
-                Domain Leads & Strategists
+                Technical Tracks
               </h2>
               <p className="text-muted-foreground mt-2">
                 Experts driving excellence in their domains
@@ -133,16 +133,14 @@ export default function TeamPage() {
                   <h3 className="text-lg font-semibold text-primary mb-6 text-center">
                     {domain.category}
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
                     {domain.members.map((member, index) => (
-                      <div key={member.id} className="flex justify-center">
-                        <TeamMemberCard
-                          key={member.id}
-                          member={member}
-                          index={index}
-                          variant="small"
-                        />
-                      </div>
+                      <TeamMemberCard
+                        key={member.id}
+                        member={member}
+                        index={index}
+                        variant="small"
+                      />
                     ))}
                   </div>
                 </motion.div>
@@ -194,16 +192,15 @@ export default function TeamPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
               {filteredMembers.length > 0 ? (
                 filteredMembers.map((member, index) => (
-                  <div key={member.id} className="flex justify-center">
-                    <TeamMemberCard
-                      member={member}
-                      index={index}
-                      variant="small"
-                    />
-                  </div>
+                  <TeamMemberCard
+                    key={member.id}
+                    member={member}
+                    index={index}
+                    variant="small"
+                  />
                 ))
               ) : (
                 <div className="col-span-full flex flex-col items-center justify-center py-16">
@@ -249,15 +246,14 @@ export default function TeamPage() {
                 Where our former members are now
               </p>
             </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
               {alumni.map((member, index) => (
-                <div key={member.id} className="flex justify-center">
-                  <TeamMemberCard
-                    member={member}
-                    index={index}
-                    variant="small"
-                  />
-                </div>
+                <TeamMemberCard
+                  key={member.id}
+                  member={member}
+                  index={index}
+                  variant="small"
+                />
               ))}
             </div>
           </div>
