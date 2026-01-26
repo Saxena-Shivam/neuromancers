@@ -291,18 +291,6 @@ export const members: TeamMember[] = [
     bio: "Strong interest in backend development and system design. Building scalable applications.",
   },
   {
-    id: 22,
-    name: "NANUVALA SRI ADHITHYA",
-    role: "Member",
-    domain:
-      "Competitive Programming (CP) Web Development;Machine Learning / AI Data Science;System Design",
-    image: "/profile/optimized/profileimage - NANUVALA SRI ADHITHYA.webp",
-    email: "25cs01055@iitbbs.ac.in",
-    linkedin: "https://www.linkedin.com/in/sri-adhithya-n-51b90439b/",
-    github: "https://github.com/Adhi4127",
-    bio: "First year CSE doing DSA and learning MERN STACK with competitive programming.",
-  },
-  {
     id: 23,
     name: "Abhishek Singh",
     role: "Member",
