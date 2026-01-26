@@ -76,7 +76,7 @@ export const domainLeads: DomainLeadGroup[] = [
       {
         id: 6,
         name: "Utkarsh Verma",
-        role: "CP Expert",
+        role: "Member",
         domain: "Competitive Programming (CP) Web Development",
         image: "/profile/optimized/IMG-20231112-WA0012 - UTKARSH VERMA.webp",
         email: "utkarshver11@gmail.com",
@@ -117,7 +117,7 @@ export const domainLeads: DomainLeadGroup[] = [
       {
         id: 9,
         name: "Kadambari Siddarth Subramanyam",
-        role: "Full Stack & Systems Lead",
+        role: "Member",
         domain:
           "Competitive Programming (CP) Web Development App Development System Design",
         image:
@@ -136,7 +136,7 @@ export const domainLeads: DomainLeadGroup[] = [
       {
         id: 10,
         name: "Devesh Kumar",
-        role: "System Design Expert",
+        role: "Member",
         domain: "Competitive Programming (CP) System Design",
         image: "/profile/optimized/1513 - Devesh kumar.webp",
         email: "devesh006kumar@gmail.com",
@@ -152,7 +152,7 @@ export const domainLeads: DomainLeadGroup[] = [
       {
         id: 12,
         name: "Hetvi Patel",
-        role: "Web Development",
+        role: "Member",
         domain: "Competitive Programming (CP) Web Development",
         image: "/profile/optimized/Pic - Hetvi Patel.webp",
         email: "24ce01068@iitbbs.ac.in",
@@ -163,7 +163,7 @@ export const domainLeads: DomainLeadGroup[] = [
       {
         id: 13,
         name: "Prashant Sharma",
-        role: "Full Stack Developer",
+        role: "Member",
         domain:
           "Competitive Programming (CP) Web Development;Machine Learning / AI",
         image: "/profile/optimized/IMG_20260124_192349 - PRASHANT SHARMA.webp",
@@ -192,7 +192,7 @@ export const domainLeads: DomainLeadGroup[] = [
       {
         id: 15,
         name: "Jayaditya Sahu",
-        role: "ML & Data Science Lead",
+        role: "Member",
         domain:
           "Web Development App Development Machine Learning / AI Data Science",
         image:
@@ -216,7 +216,7 @@ export const domainLeads: DomainLeadGroup[] = [
       {
         id: 17,
         name: "Anmol Kamath",
-        role: "ML & CP Lead",
+        role: "Member",
         domain:
           "Competitive Programming (CP) Machine Learning / AI Data Science System Design Generative AI",
         image: "/profile/optimized/Anmol_Formal_Picture - KAMATH ANMOL.webp",
@@ -230,7 +230,7 @@ export const domainLeads: DomainLeadGroup[] = [
       {
         id: 18,
         name: "JupudI Adarsh",
-        role: "ML Enthusiast",
+        role: "Member",
         domain:
           "Competitive Programming (CP);Web Development;Machine Learning / AI",
         image: "/profile/optimized/Adarsh_Photo - JUPUDI ADARSH.webp",
@@ -306,7 +306,7 @@ export const members: TeamMember[] = [
   {
     id: 24,
     name: "Nanuvala Sri Adhithya",
-    role: "Current Member",
+    role: "Member",
     domain:
       "Competitive Programming (CP) Web Development Machine Learning / AI Data Science System Design",
     image: "/profile/optimized/profileimage - NANUVALA SRI ADHITHYA.webp",

@@ -117,7 +117,7 @@ export function Hero() {
           >
             {[
               { value: "50+", label: "Active Members" },
-              { value: "20++", label: "Projects Built" },
+              { value: "20+", label: "Projects Built" },
               { value: "20+", label: "Events Hosted" },
               { value: "500+", label: "Alumni Network" },
             ].map((stat, index) => (

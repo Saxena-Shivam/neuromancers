@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import {
@@ -34,7 +35,7 @@ const footerLinks = {
   connect: [
     { label: "Join Us", href: "/join" },
     { label: "Contact", href: "/contact" },
-    { label: "Alumni Network", href: "/team#alumni" },
+    { label: "Alumni Network", href: "/alumni" },
     { label: "FAQ", href: "/faq" },
   ],
 };
@@ -47,7 +48,7 @@ const socialLinks = [
   },
   {
     icon: Linkedin,
-    href: "https://linkedin.com/company/neuromancers-iitbbs",
+    href: "https://www.linkedin.com/company/neuromancers",
     label: "LinkedIn",
   },
   {
@@ -55,7 +56,7 @@ const socialLinks = [
     href: "https://instagram.com/neuromancers_iitbbs",
     label: "Instagram",
   },
-  { icon: Mail, href: "mailto:neuromancers@iitbbs.ac.in", label: "Email" },
+  { icon: Mail, href: "mailto:secyprogsoc.sg@iitbbs.ac.in", label: "Email" },
 ];
 
 export function Footer() {
@@ -217,6 +218,15 @@ export function Footer() {
 
                 {/* Content */}
                 <div className="relative flex items-center justify-center gap-3">
+                  <div className="relative w-8 h-8 rounded-full overflow-hidden border-2 border-primary/30 group-hover:border-primary/50 transition-colors">
+                    <Image
+                      src="/profile/optimized/shivam2.webp"
+                      alt="Shivam Saxena"
+                      fill
+                      sizes="32px"
+                      className="object-cover"
+                    />
+                  </div>
                   <span className="text-sm font-bold bg-gradient-to-r from-neon-cyan to-neon-green bg-clip-text text-transparent">
                     Shivam Saxena
                   </span>
