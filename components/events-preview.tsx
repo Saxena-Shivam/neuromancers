@@ -6,6 +6,8 @@ import { motion, useInView } from "framer-motion";
 import { ArrowRight, Calendar, MapPin, Users, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { toast } from "sonner";
+import type { Event as EventType } from "@/data/events";
 import { events } from "@/data/events";
 
 function getEventTypeColor(type: string) {
@@ -33,6 +35,15 @@ export function EventsPreview() {
       pastPreview: past.slice(-4).reverse(), // take last 4 past, show newest first
     };
   }, []);
+
+  const handleRegisterClick = (event: EventType) => {
+    if (event.registrationLink) {
+      window.open(event.registrationLink, "_blank", "noreferrer");
+      return;
+    }
+
+    toast.info("Registration not started yet. Please check back soon.");
+  };
 
   return (
     <section className="py-24 lg:py-32" ref={ref}>
@@ -117,10 +128,10 @@ export function EventsPreview() {
 
                 {/* Register button */}
                 <Button
-                  asChild
+                  onClick={() => handleRegisterClick(event)}
                   className="mt-6 w-full bg-gradient-to-r from-neon-cyan to-neon-green text-background hover:opacity-90"
                 >
-                  <Link href={`/events/${event.id}`}>Register Now</Link>
+                  Register Now
                 </Button>
 
                 {/* Hover glow */}
