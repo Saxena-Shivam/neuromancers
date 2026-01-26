@@ -44,12 +44,12 @@ export const projects: Project[] = [
       {
         name: "Shivam Saxena",
         image:
-          "/profile/Screenshot_2025-05-12-17-30-05-94_6012fa4d4ddec268fc5c7112cbb265e7_Original - KADAMBARI SIDDARTH SUBRAMANYAM.jpeg",
+          "/profile/optimized/Screenshot_2025-05-12-17-30-05-94_6012fa4d4ddec268fc5c7112cbb265e7_Original - KADAMBARI SIDDARTH SUBRAMANYAM.webp",
       },
     ],
     featured: true,
     year: "2024",
-    image: "/project/gc.jpg",
+    image: "/project/optimized/gc.webp",
   },
   {
     id: 1,
@@ -77,12 +77,12 @@ export const projects: Project[] = [
     contributors: [
       {
         name: "Shivam Saxena",
-        image: "/profile/shivam2.jpeg",
+        image: "/profile/optimized/shivam2.webp",
       },
     ],
     featured: true,
     year: "2025",
-    image: "/project/acadsync.png",
+    image: "/project/optimized/acadsync.webp",
   },
   {
     id: 3,
@@ -110,7 +110,7 @@ export const projects: Project[] = [
     contributors: [
       {
         name: "Shivam Saxena",
-        image: "/profile/shivam2.jpeg",
+        image: "/profile/optimized/shivam2.webp",
       },
     ],
     featured: false,
@@ -140,12 +140,12 @@ export const projects: Project[] = [
     contributors: [
       {
         name: "Shivam Saxena",
-        image: "/profile/shivam2.jpeg",
+        image: "/profile/optimized/shivam2.webp",
       },
     ],
     featured: false,
     year: "2025",
-    image: "/project/image.png",
+    image: "/project/optimized/image.webp",
   },
 
   // {

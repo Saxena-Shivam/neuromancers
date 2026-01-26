@@ -158,3 +158,63 @@ body {
     @apply dark:group-hover:text-primary;
   }
 }
+
+/* Professional Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+  border-radius: 10px;
+  margin: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--neon-cyan) 0%,
+    var(--neon-blue) 50%,
+    var(--neon-green) 100%
+  );
+  border-radius: 10px;
+  border: 2px solid var(--background);
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    var(--neon-green) 0%,
+    var(--neon-cyan) 50%,
+    var(--neon-blue) 100%
+  );
+  box-shadow:
+    0 0 10px var(--neon-cyan),
+    0 0 20px var(--neon-cyan);
+  border-color: transparent;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--primary);
+  box-shadow:
+    0 0 15px var(--neon-cyan),
+    0 0 30px var(--neon-cyan);
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--neon-cyan) var(--background);
+}
+
+/* Smooth scrollbar transitions */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Corner styling for scrollbars */
+::-webkit-scrollbar-corner {
+  background: var(--background);
+}

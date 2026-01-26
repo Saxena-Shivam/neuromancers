@@ -2,7 +2,6 @@
 
 import { useRef, useMemo } from "react";
 import { motion, useInView } from "framer-motion";
-import { Trophy } from "lucide-react";
 import { achievementHighlights, achievementStats } from "@/data/achievements";
 
 export function Achievements() {
@@ -11,7 +10,7 @@ export function Achievements() {
 
   const previewAchievements = useMemo(() => {
     // Reverse chronological order and slice 6 most recent
-    return achievementHighlights.reverse().slice(0, 6);
+    return [...achievementHighlights].reverse().slice(0, 6);
   }, []);
 
   const stats = useMemo(() => {
@@ -105,7 +104,7 @@ export function Achievements() {
                           }`}
                         >
                           <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                            <IconComponent className="h-5 w-5 text-primary" />
+                            <IconComponent size={20} className="text-primary" />
                           </div>
                           <div className="flex-1">
                             <span className="text-xs font-mono text-primary uppercase tracking-wider">
