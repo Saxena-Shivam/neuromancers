@@ -1,36 +1,188 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Neuromancers - IIT Bhubaneswar Programming Society Website
 
-## Getting Started
+Official website for Neuromancers, the Programming Society of IIT Bhubaneswar. A modern, feature-rich platform built with Next.js 15, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+![Neuromancers](public/og-image.png)
+
+## ✨ Features
+
+### 🏠 Core Pages
+
+- **Home** - Dynamic hero section with animated statistics, featured projects, and achievements
+- **Team** - Interactive team directory with domain-based filtering and member profiles
+- **Projects** - Showcase of society projects with GitHub integration and contributor details
+- **Events** - Event listings with categorization and timeline view
+- **Achievements** - Timeline of major accomplishments with animations
+- **Gallery** - Image gallery with optimized WebP images and category filters
+- **Blog** - Coming soon - Articles and tutorials
+- **Leaderboard** - Coming soon - Member rankings and statistics
+- **Alumni** - Alumni network with search, batch filtering, and testimonials
+- **FAQ** - Frequently asked questions with smooth accordion UI
+- **Contact** - Contact form and information
+
+### 🎨 Design & UI
+
+- **Dark/Light Theme** - Smooth theme switching with system preference detection
+- **Responsive Design** - Mobile-first approach, optimized for all screen sizes
+- **Custom Scrollbars** - Themed scrollbar styling across the application
+- **Scroll Progress Bar** - Visual reading progress indicator
+- **Animations** - Framer Motion animations for smooth transitions
+- **Gradient Effects** - Neon cyan/green gradient accents throughout
+- **Glass Morphism** - Modern glassmorphic card designs
+- **Loading States** - Skeleton loaders and suspense boundaries
+
+### 🔧 Technical Features
+
+- **Next.js 15** - Latest App Router with React Server Components
+- **TypeScript** - Full type safety across the codebase
+- **Tailwind CSS** - Utility-first CSS with custom theme configuration
+- **Image Optimization** - Next.js Image component with WebP format and quality settings
+- **SEO Optimized** - Meta tags, Open Graph, and structured data
+- **Performance** - Lazy loading, code splitting, and optimized bundles
+- **Accessibility** - ARIA labels, keyboard navigation, and semantic HTML
+
+### 📊 Data Management
+
+- **Team Data** - Centralized team member data with roles and domains
+  - Secretary, Governors, Domain Leads, Members
+  - Competitive Programming, Web/App Development, ML/AI, System Design
+- **Alumni Data** - Alumni profiles with batch, company, and achievements
+- **Project Data** - Project information with tech stack and contributors
+- **Achievement Data** - Society milestones with icons and descriptions
+- **Gallery Data** - Curated event and team photos
+- **Testimonial Integration** - Alumni testimonials pulled from alumni data
+
+### 🎯 Interactive Components
+
+- **Navbar** - Sticky navigation with mobile menu and theme toggle
+- **Hero Section** - Animated statistics and CTA buttons
+- **Team Cards** - Hover effects, domain badges, and social links
+- **Project Cards** - GitHub stats integration and tech stack visualization
+- **Achievement Timeline** - Scrolling timeline with framer-motion
+- **Gallery Grid** - Masonry layout with first image as hero
+- **FAQ Accordion** - Expandable Q&A sections
+- **Newsletter Signup** - Email subscription form
+- **Footer** - Comprehensive site map with developer credit
+
+### 🔍 Enhanced User Experience
+
+- **Search & Filter** - Alumni search by name, company, or role
+- **Batch Filtering** - Filter alumni by graduation year
+- **Domain Filtering** - Filter team members by expertise area
+- **Empty States** - Graceful handling of no data scenarios
+- **Error Handling** - User-friendly error messages
+- **Loading Skeletons** - Skeleton screens during data fetching
+
+### 🛠️ Developer Experience
+
+- **Component Library** - Reusable UI components with shadcn/ui
+- **Data Separation** - Centralized data files for easy updates
+- **Type Safety** - Comprehensive TypeScript interfaces
+- **Code Organization** - Clean folder structure and naming conventions
+- **Version Control** - Git-based workflow with clear commits
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm, yarn, pnpm, or bun
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/neuromancers-iitbbs/website.git
+cd neuromancers
+
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the website.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Create optimized production build
+npm run build
 
-## Learn More
+# Start production server
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 📁 Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+neuromancers/
+├── app/                    # Next.js App Router pages
+│   ├── achievements/
+│   ├── alumni/
+│   ├── contact/
+│   ├── events/
+│   ├── faq/
+│   ├── gallery/
+│   ├── projects/
+│   ├── team/
+│   └── page.tsx           # Home page
+├── components/            # React components
+│   ├── ui/               # shadcn/ui components
+│   ├── navbar.tsx
+│   ├── footer.tsx
+│   ├── hero.tsx
+│   └── ...
+├── data/                 # Data files
+│   ├── team.ts          # Team member data
+│   ├── alumni.ts        # Alumni data
+│   ├── projects.ts      # Project data
+│   ├── achievements.ts  # Achievement data
+│   ├── gallery.ts       # Gallery images
+│   └── testimonials.ts  # Testimonial data
+├── lib/                 # Utility functions
+├── public/              # Static assets
+│   ├── profile/         # Member photos
+│   ├── gallery/         # Event photos
+│   └── projects/        # Project images
+└── styles/             # Global styles
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🎨 Tech Stack
 
-## Deploy on Vercel
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **UI Components:** shadcn/ui, Radix UI
+- **Animations:** Framer Motion
+- **Icons:** Lucide Icons
+- **Image Optimization:** Next.js Image, WebP format
+- **Theme:** next-themes (dark/light mode)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🤝 Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contributions are welcome! To update content:
+
+1. **Team Members** - Edit `data/team.ts`
+2. **Alumni** - Edit `data/alumni.ts`
+3. **Projects** - Edit `data/projects.ts`
+4. **Achievements** - Edit `data/achievements.ts`
+5. **Gallery** - Add images to `public/gallery/` and update `data/gallery.ts`
+
+## 📝 License
+
+All rights reserved © 2026 Neuromancers, IIT Bhubaneswar
+
+## 👨‍💻 Developed By
+
+**Shivam Saxena**
+
+- Portfolio: [portfolio-new-seven-henna.vercel.app](https://portfolio-new-seven-henna.vercel.app/)
+- GitHub: [@Saxena-Shivam](https://github.com/Saxena-Shivam)
+- LinkedIn: [Shivam Saxena](https://www.linkedin.com/in/shivam-saxena-aa8754289/)
+- Email: shivamsaxena562006@gmail.com
+
+---
+
+Built with ❤️ for Neuromancers • Next.js + TypeScript • v2.0
