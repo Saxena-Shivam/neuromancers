@@ -328,17 +328,17 @@ export const members: TeamMember[] = [
     bio: "CSE student interested in DSA and exploring AI and machine learning to expand technical knowledge.",
   },
 
-  // {
-  //   id: 26,
-  //   name: "Nandyala Sai Keerthi",
-  //   role: "Member",
-  //   domain: "Competitive Programming (CP) Web Development",
-  //   image: "/placeholder.svg",
-  //   email: "nsaikeerthi5@gmail.com",
-  //   linkedin: "https://www.linkedin.com/in/nandyala-sai-keerthi-bb6350380",
-  //   github: "https://github.com/nsaikeerthi5",
-  //   bio: "Passionate about programming and problem-solving, constantly improving skills through practice.",
-  // },
+  {
+    id: 26,
+    name: "Nandyala Sai Keerthi",
+    role: "Member",
+    domain: "Competitive Programming (CP) Web Development",
+    image: "/profile/optimized/Keerthi.webp",
+    email: "nsaikeerthi5@gmail.com",
+    linkedin: "https://www.linkedin.com/in/nandyala-sai-keerthi-bb6350380",
+    github: "https://github.com/nsaikeerthi5",
+    bio: "Passionate about programming and problem-solving, constantly improving skills through practice.",
+  },
 ];
 
 export const alumni: TeamMember[] = [];
