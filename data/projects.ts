@@ -38,8 +38,8 @@ export const projects: Project[] = [
     domain: "App Development",
     github: "#",
     live: "https://drive.google.com/file/d/15mRpVcHAev2AVEN8lfmeH7HiHUgd3A3s/view",
-    stars: 156,
-    forks: 34,
+    stars: 15,
+    forks: 4,
     contributors: [
       {
         name: "Shivam Saxena",
@@ -72,7 +72,7 @@ export const projects: Project[] = [
     domain: "Web Development",
     github: "#",
     live: "https://acadsync.in",
-    stars: 128,
+    stars: 28,
     forks: 24,
     contributors: [
       {
