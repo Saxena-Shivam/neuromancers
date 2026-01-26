@@ -116,9 +116,9 @@ export function Hero() {
             className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8"
           >
             {[
-              { value: "100+", label: "Active Members" },
-              { value: "50+", label: "Projects Built" },
-              { value: "30+", label: "Events Hosted" },
+              { value: "50+", label: "Active Members" },
+              { value: "20++", label: "Projects Built" },
+              { value: "20+", label: "Events Hosted" },
               { value: "500+", label: "Alumni Network" },
             ].map((stat, index) => (
               <motion.div

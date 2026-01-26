@@ -15,20 +15,20 @@ export const galleryImages: GalleryImage[] = [
     category: "team",
   },
 
-  {
-    id: 2,
-    src: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=600&fit=crop",
-    alt: "Team meetup",
-    title: "Team Building Session",
-    category: "Meetup",
-  },
-  {
-    id: 3,
-    src: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600&fit=crop",
-    alt: "Workshop session",
-    title: "ML Workshop",
-    category: "Workshop",
-  },
+  // {
+  //   id: 2,
+  //   src: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=600&fit=crop",
+  //   alt: "Team meetup",
+  //   title: "Team Building Session",
+  //   category: "Meetup",
+  // },
+  // {
+  //   id: 3,
+  //   src: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600&fit=crop",
+  //   alt: "Workshop session",
+  //   title: "ML Workshop",
+  //   category: "Workshop",
+  // },
   {
     id: 4,
     src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=600&fit=crop",
