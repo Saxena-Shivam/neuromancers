@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { motion, useInView } from "framer-motion";
 import { Calendar, Clock, User, ArrowRight, Search, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,132 +10,9 @@ import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
+import { blogPosts, blogCategories } from "@/data/blog";
 
-interface BlogPost {
-  id: number;
-  title: string;
-  excerpt: string;
-  content?: string;
-  author: string;
-  authorImage: string;
-  authorRole: string;
-  date: string;
-  readTime: string;
-  category: string;
-  tags: string[];
-  image: string;
-  featured?: boolean;
-}
-
-const blogPosts: BlogPost[] = [
-  {
-    id: 1,
-    title: "A Deep Dive into Transformer Architecture",
-    excerpt:
-      "Understanding the attention mechanism and how transformers revolutionized NLP and beyond.",
-    author: "Priya Sharma",
-    authorImage:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
-    authorRole: "ML Strategist",
-    date: "Jan 20, 2026",
-    readTime: "12 min read",
-    category: "Machine Learning",
-    tags: ["Transformers", "NLP", "Deep Learning"],
-    image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop",
-    featured: true,
-  },
-  {
-    id: 2,
-    title: "Mastering Dynamic Programming: A Pattern-Based Approach",
-    excerpt:
-      "Learn the 5 essential DP patterns that will help you solve 90% of DP problems in competitive programming.",
-    author: "Rahul Verma",
-    authorImage:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
-    authorRole: "CP Expert",
-    date: "Jan 15, 2026",
-    readTime: "15 min read",
-    category: "Competitive Programming",
-    tags: ["DP", "Algorithms", "Problem Solving"],
-    image:
-      "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop",
-  },
-  // {
-  //   id: 3,
-  //   title: "Building Scalable APIs with Next.js 16 and Edge Functions",
-  //   excerpt:
-  //     "A comprehensive guide to creating performant and scalable APIs using the latest Next.js features.",
-  //   author: "Amit Kumar",
-  //   authorImage:
-  //     "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
-  //   authorRole: "Dev Strategist",
-  //   date: "Jan 10, 2026",
-  //   readTime: "10 min read",
-  //   category: "Web Development",
-  //   tags: ["Next.js", "APIs", "Edge Functions"],
-  //   image:
-  //     "https://images.unsplash.com/photo-1555066931433-6461ffad8d80?w=800&h=400&fit=crop",
-  // },
-  // {
-  //   id: 4,
-  //   title: "Introduction to Rust for Systems Programming",
-  //   excerpt:
-  //     "Why Rust is becoming the go-to language for systems programming and how to get started.",
-  //   author: "Sneha Patel",
-  //   authorImage:
-  //     "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
-  //   authorRole: "Systems Lead",
-  //   date: "Jan 5, 2026",
-  //   readTime: "8 min read",
-  //   category: "Systems Programming",
-  //   tags: ["Rust", "Systems", "Memory Safety"],
-  //   image:
-  //     "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=800&h=400&fit=crop",
-  // },
-  // {
-  //   id: 5,
-  //   title: "Building Your First Smart Contract on Ethereum",
-  //   excerpt:
-  //     "Step-by-step tutorial on writing, testing, and deploying Solidity smart contracts.",
-  //   author: "Vikram Singh",
-  //   authorImage:
-  //     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
-  //   authorRole: "Blockchain Lead",
-  //   date: "Dec 28, 2025",
-  //   readTime: "14 min read",
-  //   category: "Blockchain",
-  //   tags: ["Ethereum", "Solidity", "Web3"],
-  //   image:
-  //     "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=400&fit=crop",
-  // },
-  // {
-  //   id: 6,
-  //   title: "React Native vs Flutter: A 2026 Comparison",
-  //   excerpt:
-  //     "An in-depth comparison of the two most popular cross-platform mobile development frameworks.",
-  //   author: "Neha Gupta",
-  //   authorImage:
-  //     "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
-  //   authorRole: "App Dev Strategist",
-  //   date: "Dec 20, 2025",
-  //   readTime: "11 min read",
-  //   category: "App Development",
-  //   tags: ["React Native", "Flutter", "Mobile"],
-  //   image:
-  //     "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=400&fit=crop",
-  // },
-];
-
-const categories = [
-  "All",
-  "Machine Learning",
-  "Competitive Programming",
-  "Web Development",
-  "App Development",
-  "Cyber Security",
-  "Game development",
-];
+const categories = blogCategories;
 
 function getCategoryColor(category: string) {
   const colors: Record<string, string> = {
@@ -154,11 +32,17 @@ function Loading() {
 }
 
 export default function BlogPage() {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const searchParams = useSearchParams();
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    router.push("/under-development");
+  };
 
   const filteredPosts = blogPosts.filter((post) => {
     const matchesSearch =
@@ -302,7 +186,22 @@ export default function BlogPage() {
         {/* Blog Grid */}
         <section className="py-12 lg:py-16">
           <div className="container mx-auto px-4 lg:px-8">
-            {filteredPosts.length === 0 ? (
+            {blogPosts.length === 0 ? (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-center py-16"
+              >
+                <Tag className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
+                <h3 className="text-xl font-semibold mb-2">
+                  No articles available yet
+                </h3>
+                <p className="text-muted-foreground">
+                  Check back soon for technical insights and tutorials from our
+                  members.
+                </p>
+              </motion.div>
+            ) : filteredPosts.length === 0 ? (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -413,13 +312,19 @@ export default function BlogPage() {
                 Get the latest articles and tech insights delivered to your
                 inbox.
               </p>
-              <form className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+              <form
+                className="mt-8 flex flex-col sm:flex-row gap-4 justify-center"
+                onSubmit={handleSubscribe}
+              >
                 <Input
                   type="email"
                   placeholder="Enter your email"
                   className="sm:w-72 bg-background"
                 />
-                <Button className="bg-gradient-to-r from-neon-cyan to-neon-green text-background hover:opacity-90">
+                <Button
+                  type="submit"
+                  className="bg-gradient-to-r from-neon-cyan to-neon-green text-background hover:opacity-90 cursor-pointer"
+                >
                   Subscribe
                 </Button>
               </form>

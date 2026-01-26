@@ -172,7 +172,7 @@ export function Footer() {
               />
               <Button
                 type="submit"
-                className="bg-gradient-to-r from-neon-cyan to-neon-green text-background hover:opacity-90"
+                className="bg-gradient-to-r from-neon-cyan to-neon-green text-background hover:opacity-90 cursor-pointer"
               >
                 <Send className="h-4 w-4 mr-2" />
                 Subscribe

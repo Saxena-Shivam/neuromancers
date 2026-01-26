@@ -1,8 +1,13 @@
-# Neuromancers - IIT Bhubaneswar Programming Society Website
+# 🧠 Neuromancers - IIT Bhubaneswar
 
-Official website for Neuromancers, the Programming Society of IIT Bhubaneswar. A modern, feature-rich platform built with Next.js 15, TypeScript, and Tailwind CSS.
+> A modern, interactive website for Neuromancers - the competitive programming and tech innovation club at IIT Bhubaneswar.
 
-![Neuromancers](public/og-image.png)
+![Next.js](https://img.shields.io/badge/Next.js-14+-black?style=flat-square)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?style=flat-square)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.0+-38B2AC?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+
+![Neuromancers](public/logo.jpeg)
 
 ## ✨ Features
 

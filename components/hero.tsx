@@ -37,7 +37,7 @@ export function Hero() {
           >
             <Sparkles className="h-4 w-4 text-primary" />
             <span className="text-sm font-medium text-primary">
-              IIT Bhubaneswar's Premier Society
+              IIT Bhubaneswar's Premier Programming Society
             </span>
           </motion.div>
 
