@@ -131,22 +131,6 @@ export const domainLeads: DomainLeadGroup[] = [
     ],
   },
   {
-    category: "System Design",
-    members: [
-      {
-        id: 10,
-        name: "Devesh Kumar",
-        role: "Member",
-        domain: "Competitive Programming (CP) System Design",
-        image: "/profile/optimized/1513 - Devesh kumar.webp",
-        email: "devesh006kumar@gmail.com",
-        linkedin: "https://www.linkedin.com/in/devesh-kumar-81aa73317/",
-        github: "https://github.com/Devu2501",
-        bio: "Focused on learning DSA and competitive programming.",
-      },
-    ],
-  },
-  {
     category: "Web Development",
     members: [
       {
@@ -159,6 +143,17 @@ export const domainLeads: DomainLeadGroup[] = [
         linkedin: "https://www.linkedin.com/in/hetvi-patel-ab6a40323/",
         github: "https://github.com/hetvi168",
         bio: "Coding enthusiast focused on building efficient solutions in web development and DSA.",
+      },
+      {
+        id: 27,
+        name: "Shivam Saxena",
+        role: "Member",
+        domain: "Web Development Generative AI",
+        image: "/profile/optimized/shivam2.webp",
+        email: "shivamsaxena562006@gmail.com",
+        linkedin: "https://www.linkedin.com/in/shivam-saxena-aa8754289/",
+        github: "https://github.com/Saxena-Shivam",
+        bio: "Full-stack developer building web applications and exploring generative AI.",
       },
       {
         id: 13,
@@ -182,6 +177,22 @@ export const domainLeads: DomainLeadGroup[] = [
         linkedin: "https://www.linkedin.com/in/ashmit-chowdhury",
         github: "https://github.com/baguvix7",
         bio: "Avid competitive programmer.",
+      },
+    ],
+  },
+  {
+    category: "System Design",
+    members: [
+      {
+        id: 10,
+        name: "Devesh Kumar",
+        role: "Member",
+        domain: "Competitive Programming (CP) System Design",
+        image: "/profile/optimized/1513 - Devesh kumar.webp",
+        email: "devesh006kumar@gmail.com",
+        linkedin: "https://www.linkedin.com/in/devesh-kumar-81aa73317/",
+        github: "https://github.com/Devu2501",
+        bio: "Focused on learning DSA and competitive programming.",
       },
     ],
   },
