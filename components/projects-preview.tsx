@@ -40,7 +40,7 @@ export function ProjectsPreview() {
           <Button
             asChild
             variant="outline"
-            className="border-primary/50 hover:bg-primary/10 self-start md:self-auto bg-transparent"
+            className="border-primary/30 hover:border-primary/60 hover:bg-primary/10 text-foreground hover:text-foreground transition-all duration-200 self-start md:self-auto"
           >
             <Link href="/projects">
               View All Projects

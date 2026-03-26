@@ -218,3 +218,10 @@ html {
 ::-webkit-scrollbar-corner {
   background: var(--background);
 }
+
+/* Keep Sonner close button fixed at top-right of each toast */
+[data-sonner-toast] [data-close-button] {
+  left: auto !important;
+  right: 8px !important;
+  top: 8px !important;
+}

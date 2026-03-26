@@ -21,6 +21,55 @@ function getEventTypeColor(type: string) {
   return colors[type] || "bg-primary/10 text-primary border-primary/20";
 }
 
+function getEventCloseTimestamp(dateValue: string) {
+  const yearOnly = /^\d{4}$/;
+  if (yearOnly.test(dateValue.trim())) {
+    return new Date(Number(dateValue), 11, 31, 23, 59, 59, 999).getTime();
+  }
+
+  const monthYear = dateValue.trim().match(/^([A-Za-z]+)\s+(\d{4})$/);
+  if (monthYear) {
+    const parsed = Date.parse(`1 ${dateValue}`);
+    if (!Number.isNaN(parsed)) {
+      const d = new Date(parsed);
+      return new Date(
+        d.getFullYear(),
+        d.getMonth() + 1,
+        0,
+        23,
+        59,
+        59,
+        999,
+      ).getTime();
+    }
+  }
+
+  const parsed = Date.parse(dateValue);
+  if (!Number.isNaN(parsed)) {
+    const d = new Date(parsed);
+    return new Date(
+      d.getFullYear(),
+      d.getMonth(),
+      d.getDate(),
+      23,
+      59,
+      59,
+      999,
+    ).getTime();
+  }
+
+  return null;
+}
+
+function isRegistrationClosed(event: EventType) {
+  if (event.status === "past") return true;
+
+  const closeTs = getEventCloseTimestamp(event.date);
+  if (closeTs === null) return false;
+
+  return Date.now() > closeTs;
+}
+
 export function EventsPreview() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -37,12 +86,23 @@ export function EventsPreview() {
   }, []);
 
   const handleRegisterClick = (event: EventType) => {
+    if (isRegistrationClosed(event)) {
+      toast.error("Registration closed for this event.", {
+        id: `registration-closed-${event.id}`,
+        duration: 3500,
+      });
+      return;
+    }
+
     if (event.registrationLink) {
       window.open(event.registrationLink, "_blank", "noreferrer");
       return;
     }
 
-    toast.info("Registration not started yet. Please check back soon.");
+    toast.info("Registration not started yet. Please check back soon.", {
+      id: `registration-pending-${event.id}`,
+      duration: 3500,
+    });
   };
 
   return (
@@ -128,10 +188,17 @@ export function EventsPreview() {
 
                 {/* Register button */}
                 <Button
+                  variant={isRegistrationClosed(event) ? "outline" : "default"}
                   onClick={() => handleRegisterClick(event)}
-                  className="mt-6 w-full bg-gradient-to-r from-neon-cyan to-neon-green text-background hover:opacity-90"
+                  className={`mt-6 w-full transition-all duration-300 ${
+                    isRegistrationClosed(event)
+                      ? "border-destructive/50 text-destructive hover:bg-destructive/20 hover:border-destructive dark:hover:bg-destructive/30"
+                      : "bg-gradient-to-r from-neon-cyan to-neon-green text-background hover:opacity-90"
+                  }`}
                 >
-                  Register Now
+                  {isRegistrationClosed(event)
+                    ? "Registration Closed"
+                    : "Register Now"}
                 </Button>
 
                 {/* Hover glow */}

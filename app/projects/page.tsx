@@ -82,7 +82,7 @@ export default function ProjectsPage() {
                   className={
                     selectedDomain === domain
                       ? "bg-primary text-primary-foreground"
-                      : "border-border"
+                      : "border-primary/30 hover:border-primary/60 hover:bg-primary/10 text-foreground hover:text-foreground transition-all duration-200"
                   }
                 >
                   {domain}
@@ -111,7 +111,7 @@ export default function ProjectsPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.1 * index }}
-                  className="group relative rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 overflow-hidden"
+                  className="group relative rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 overflow-hidden"
                 >
                   {/* Project image */}
                   {project.image && (
@@ -144,7 +144,7 @@ export default function ProjectsPage() {
                     </div>
 
                     {/* Description */}
-                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-3 group-hover:text-foreground transition-colors">
                       {project.description}
                     </p>
 
@@ -153,13 +153,13 @@ export default function ProjectsPage() {
                       {project.techStack.slice(0, 4).map((tech) => (
                         <span
                           key={tech}
-                          className="px-2 py-1 text-xs font-mono rounded-md bg-secondary text-muted-foreground"
+                          className="px-2 py-1 text-xs font-mono rounded-md bg-secondary text-muted-foreground group-hover:text-foreground group-hover:bg-secondary/80 transition-colors"
                         >
                           {tech}
                         </span>
                       ))}
                       {project.techStack.length > 4 && (
-                        <span className="px-2 py-1 text-xs font-mono rounded-md bg-secondary text-muted-foreground">
+                        <span className="px-2 py-1 text-xs font-mono rounded-md bg-secondary text-muted-foreground group-hover:text-foreground group-hover:bg-secondary/80 transition-colors">
                           +{project.techStack.length - 4}
                         </span>
                       )}
@@ -171,7 +171,7 @@ export default function ProjectsPage() {
                         {project.contributors.slice(0, 3).map((contributor) => (
                           <div
                             key={contributor.name}
-                            className="relative w-8 h-8 rounded-full overflow-hidden border-2 border-card"
+                            className="relative w-8 h-8 rounded-full overflow-hidden border-2 border-card group-hover:border-primary/50 transition-colors"
                           >
                             <Image
                               src={contributor.image || "/placeholder.svg"}
@@ -183,7 +183,7 @@ export default function ProjectsPage() {
                           </div>
                         ))}
                       </div>
-                      <span className="text-xs text-muted-foreground">
+                      <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
                         {project.contributors.length} contributor
                         {project.contributors.length > 1 ? "s" : ""}
                       </span>
@@ -192,15 +192,15 @@ export default function ProjectsPage() {
                     {/* Footer */}
                     <div className="mt-6 pt-4 border-t border-border flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-1 text-sm text-muted-foreground group-hover:text-foreground transition-colors">
                           <Star className="h-4 w-4 fill-current text-yellow-500" />
                           <span>{project.stars ?? 0}</span>
                         </div>
-                        <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-1 text-sm text-muted-foreground group-hover:text-foreground transition-colors">
                           <GitFork className="h-4 w-4" />
                           <span>{project.forks ?? 0}</span>
                         </div>
-                        <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-1 text-sm text-muted-foreground group-hover:text-foreground transition-colors">
                           <Calendar className="h-4 w-4" />
                           <span>{project.year}</span>
                         </div>
@@ -253,7 +253,7 @@ export default function ProjectsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.05 * index }}
-                className="group p-6 rounded-2xl bg-background border border-border hover:border-primary/50 transition-all duration-300"
+                className="group p-6 rounded-2xl bg-background border border-border hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
@@ -263,7 +263,7 @@ export default function ProjectsPage() {
                     <h3 className="text-lg font-semibold text-foreground group-hover:text-primary dark:group-hover:text-primary transition-colors">
                       {project.title}
                     </h3>
-                    <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
+                    <p className="mt-2 text-sm text-muted-foreground line-clamp-2 group-hover:text-foreground transition-colors">
                       {project.description}
                     </p>
                   </div>
@@ -273,7 +273,7 @@ export default function ProjectsPage() {
                   {project.techStack.slice(0, 3).map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-1 text-xs font-mono rounded-md bg-secondary text-muted-foreground"
+                      className="px-2 py-1 text-xs font-mono rounded-md bg-secondary text-muted-foreground group-hover:text-foreground group-hover:bg-secondary/80 transition-colors"
                     >
                       {tech}
                     </span>
@@ -281,7 +281,7 @@ export default function ProjectsPage() {
                 </div>
 
                 <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground group-hover:text-foreground transition-colors">
                     <div className="flex items-center gap-1">
                       <Star className="h-4 w-4 fill-current text-yellow-500" />
                       <span>{project.stars}</span>

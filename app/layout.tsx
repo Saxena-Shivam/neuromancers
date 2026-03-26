@@ -53,7 +53,18 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
           <GoToTop />
-          <Toaster theme="dark" position="top-right" expand={true} richColors />
+          <Toaster
+            theme="dark"
+            position="top-right"
+            expand={true}
+            richColors
+            closeButton
+            toastOptions={{
+              classNames: {
+                closeButton: "right-2 top-2 left-auto",
+              },
+            }}
+          />
         </ThemeProvider>
         <Analytics />
       </body>

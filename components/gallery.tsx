@@ -8,13 +8,48 @@ import { galleryImages } from "@/data/gallery";
 
 export function Gallery() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, {
+    once: true,
+    amount: 0.45,
+    margin: "-10% 0px -10% 0px",
+  });
   const [selectedImage, setSelectedImage] = useState<
     (typeof galleryImages)[0] | null
   >(null);
 
+  const entryPatterns = [
+    {
+      initial: { opacity: 0, x: -90, y: 0, scale: 0.95, rotate: -2 },
+      animate: { opacity: 1, x: 0, y: 0, scale: 1, rotate: 0 },
+    },
+    {
+      initial: { opacity: 0, x: 90, y: 0, scale: 0.95, rotate: 2 },
+      animate: { opacity: 1, x: 0, y: 0, scale: 1, rotate: 0 },
+    },
+    {
+      initial: { opacity: 0, x: 0, y: -90, scale: 0.95, rotate: -2 },
+      animate: { opacity: 1, x: 0, y: 0, scale: 1, rotate: 0 },
+    },
+    {
+      initial: { opacity: 0, x: 0, y: 90, scale: 0.95, rotate: 2 },
+      animate: { opacity: 1, x: 0, y: 0, scale: 1, rotate: 0 },
+    },
+    {
+      initial: { opacity: 0, x: 0, y: 0, scale: 0.45, rotate: -30 },
+      animate: { opacity: 1, x: 0, y: 0, scale: 1, rotate: 0 },
+    },
+    {
+      initial: { opacity: 0, x: 35, y: -35, scale: 0.55, rotate: 22 },
+      animate: { opacity: 1, x: 0, y: 0, scale: 1, rotate: 0 },
+    },
+  ];
+
+  const getEntryAnimation = (index: number) =>
+    entryPatterns[index % entryPatterns.length];
+
   const firstImage = galleryImages[0];
   const restImages = galleryImages.slice(1);
+  const shouldLoadGalleryImages = isInView;
 
   return (
     <section className="py-24 lg:py-32 bg-card/50" ref={ref}>
@@ -23,7 +58,7 @@ export function Gallery() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.95 }}
           className="max-w-3xl mx-auto text-center mb-16"
         >
           <span className="text-primary font-mono text-sm tracking-wider uppercase">
@@ -45,22 +80,33 @@ export function Gallery() {
             {firstImage && (
               <motion.div
                 key={firstImage.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.05 }}
+                initial={{ opacity: 0, scale: 0.62, rotate: -8 }}
+                animate={
+                  isInView ? { opacity: 1, scale: 1, rotate: 0 } : undefined
+                }
+                transition={{
+                  delay: 0.12,
+                  duration: 1.25,
+                  type: "spring",
+                  stiffness: 95,
+                  damping: 24,
+                }}
                 className="relative group cursor-pointer overflow-hidden rounded-2xl mb-6 max-w-5xl mx-auto"
                 onClick={() => setSelectedImage(firstImage)}
               >
                 <div className="relative aspect-[16/9] sm:aspect-[16/8]">
                   <Image
-                    src={firstImage.src || "/placeholder.svg"}
+                    src={
+                      shouldLoadGalleryImages
+                        ? firstImage.src || "/placeholder.svg"
+                        : "/placeholder.svg"
+                    }
                     alt={firstImage.alt}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                     crossOrigin="anonymous"
                     quality={85}
-                    loading="eager"
-                    priority
+                    loading="lazy"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw"
                   />
 
@@ -84,44 +130,56 @@ export function Gallery() {
             {/* Remaining grid */}
             {restImages.length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {restImages.map((image, index) => (
-                  <motion.div
-                    key={image.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.12 + 0.1 * index }}
-                    className="relative group cursor-pointer overflow-hidden rounded-2xl"
-                    onClick={() => setSelectedImage(image)}
-                  >
-                    <div className="relative aspect-[4/3]">
-                      <Image
-                        src={image.src || "/placeholder.svg"}
-                        alt={image.alt}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                        crossOrigin="anonymous"
-                        quality={80}
-                        loading={index < 2 ? "eager" : "lazy"}
-                        priority={index < 2}
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      />
+                {restImages.map((image, index) => {
+                  const pattern = getEntryAnimation(index);
 
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span className="text-xs font-mono text-primary uppercase tracking-wider">
-                          {image.category}
-                        </span>
-                        <h3 className="text-lg font-semibold text-foreground mt-1">
-                          {image.title}
-                        </h3>
+                  return (
+                    <motion.div
+                      key={image.id}
+                      initial={pattern.initial}
+                      animate={isInView ? pattern.animate : undefined}
+                      transition={{
+                        delay: 0.24 + 0.14 * index,
+                        duration: 1.05,
+                        type: "spring",
+                        stiffness: 100,
+                        damping: 24,
+                      }}
+                      className="relative group cursor-pointer overflow-hidden rounded-2xl"
+                      onClick={() => setSelectedImage(image)}
+                    >
+                      <div className="relative aspect-[4/3]">
+                        <Image
+                          src={
+                            shouldLoadGalleryImages
+                              ? image.src || "/placeholder.svg"
+                              : "/placeholder.svg"
+                          }
+                          alt={image.alt}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-110"
+                          crossOrigin="anonymous"
+                          quality={80}
+                          loading="lazy"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <span className="text-xs font-mono text-primary uppercase tracking-wider">
+                            {image.category}
+                          </span>
+                          <h3 className="text-lg font-semibold text-foreground mt-1">
+                            {image.title}
+                          </h3>
+                        </div>
+                        <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background/80 backdrop-blur flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                          <ZoomIn className="h-5 w-5 text-foreground" />
+                        </div>
+                        <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary/50 transition-colors" />
                       </div>
-                      <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background/80 backdrop-blur flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                        <ZoomIn className="h-5 w-5 text-foreground" />
-                      </div>
-                      <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary/50 transition-colors" />
-                    </div>
-                  </motion.div>
-                ))}
+                    </motion.div>
+                  );
+                })}
               </div>
             )}
           </>

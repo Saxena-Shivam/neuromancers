@@ -301,7 +301,6 @@ export const members: TeamMember[] = [
     github: "https://github.com/AbhishekSingh0705",
     bio: "Focused on DSA in Java and Web Development with efficient, user-friendly applications.",
   },
-
   {
     id: 24,
     name: "Nanuvala Sri Adhithya",

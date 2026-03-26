@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import { events, Event } from "@/data/events";
+import { toast } from "sonner";
 
 const eventGallery = [
   {
@@ -64,6 +65,55 @@ function getEventTypeColor(type: string) {
     "Guest Lecture": "bg-pink-500/10 text-pink-500 border-pink-500/20",
   };
   return colors[type] || "bg-primary/10 text-primary border-primary/20";
+}
+
+function getEventCloseTimestamp(dateValue: string) {
+  const yearOnly = /^\d{4}$/;
+  if (yearOnly.test(dateValue.trim())) {
+    return new Date(Number(dateValue), 11, 31, 23, 59, 59, 999).getTime();
+  }
+
+  const monthYear = dateValue.trim().match(/^([A-Za-z]+)\s+(\d{4})$/);
+  if (monthYear) {
+    const parsed = Date.parse(`1 ${dateValue}`);
+    if (!Number.isNaN(parsed)) {
+      const d = new Date(parsed);
+      return new Date(
+        d.getFullYear(),
+        d.getMonth() + 1,
+        0,
+        23,
+        59,
+        59,
+        999,
+      ).getTime();
+    }
+  }
+
+  const parsed = Date.parse(dateValue);
+  if (!Number.isNaN(parsed)) {
+    const d = new Date(parsed);
+    return new Date(
+      d.getFullYear(),
+      d.getMonth(),
+      d.getDate(),
+      23,
+      59,
+      59,
+      999,
+    ).getTime();
+  }
+
+  return null;
+}
+
+function isRegistrationClosed(event: Event) {
+  if (event.status === "past") return true;
+
+  const closeTs = getEventCloseTimestamp(event.date);
+  if (closeTs === null) return false;
+
+  return Date.now() > closeTs;
 }
 
 function CountdownTimer({ targetDate }: { targetDate: string }) {
@@ -125,6 +175,26 @@ export default function EventsPage() {
   // Render past events newest-first; keep source array oldest-first so new items just append
   const pastEventsOrdered = [...pastEvents].reverse();
   const featuredEvent = upcomingEvents[0];
+
+  const handleRegistrationAction = (event: Event) => {
+    if (isRegistrationClosed(event)) {
+      toast.error("Registration closed for this event.", {
+        id: `registration-closed-${event.id}`,
+        duration: 3500,
+      });
+      return;
+    }
+
+    if (event.registrationLink) {
+      window.open(event.registrationLink, "_blank", "noreferrer");
+      return;
+    }
+
+    toast.info("Registration not started yet. Please check back soon.", {
+      id: `registration-pending-${event.id}`,
+      duration: 3500,
+    });
+  };
 
   return (
     <div className="pt-20" ref={ref}>
@@ -226,22 +296,25 @@ export default function EventsPage() {
                   <CountdownTimer targetDate="2026-02-15T10:00:00" />
                 </div>
 
-                {featuredEvent.registrationLink && (
-                  <Button
-                    asChild
-                    size="lg"
-                    className="mt-8 bg-gradient-to-r from-neon-cyan to-neon-green text-background hover:opacity-90"
-                  >
-                    <a
-                      href={featuredEvent.registrationLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Register Now
-                      <ChevronRight className="ml-2 h-4 w-4" />
-                    </a>
-                  </Button>
-                )}
+                <Button
+                  size="lg"
+                  variant={
+                    isRegistrationClosed(featuredEvent) ? "outline" : "default"
+                  }
+                  onClick={() => handleRegistrationAction(featuredEvent)}
+                  className={`mt-8 transition-all duration-300 ${
+                    isRegistrationClosed(featuredEvent)
+                      ? "border-destructive/50 text-destructive hover:bg-destructive/20 hover:border-destructive dark:hover:bg-destructive/30"
+                      : "bg-gradient-to-r from-neon-cyan to-neon-green text-background hover:opacity-90"
+                  }`}
+                >
+                  {isRegistrationClosed(featuredEvent)
+                    ? "Registration Closed"
+                    : "Register Now"}
+                  {!isRegistrationClosed(featuredEvent) && (
+                    <ChevronRight className="ml-2 h-4 w-4" />
+                  )}
+                </Button>
               </div>
             </motion.div>
           </div>
@@ -265,7 +338,7 @@ export default function EventsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.1 * index }}
-                className="group relative rounded-2xl bg-background border border-border hover:border-primary/50 transition-all duration-300 overflow-hidden cursor-pointer"
+                className="group relative rounded-2xl bg-background border border-border hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 overflow-hidden cursor-pointer"
                 onClick={() => setSelectedEvent(event)}
               >
                 <div className="relative h-48">
@@ -290,11 +363,11 @@ export default function EventsPage() {
                   <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
                     {event.title}
                   </h3>
-                  <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
+                  <p className="mt-2 text-sm text-muted-foreground line-clamp-2 group-hover:text-foreground transition-colors">
                     {event.description}
                   </p>
 
-                  <div className="mt-4 space-y-2 text-sm text-muted-foreground">
+                  <div className="mt-4 space-y-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors">
                     <div className="flex items-center gap-2">
                       <Calendar className="h-4 w-4 text-primary" />
                       <span>{event.date}</span>
@@ -328,7 +401,7 @@ export default function EventsPage() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 0.05 * index }}
-                className="group flex gap-6 p-4 rounded-xl bg-card/50 border border-border hover:border-primary/50 transition-all cursor-pointer"
+                className="group flex gap-6 p-4 rounded-xl bg-card/50 border border-border hover:border-primary/50 hover:bg-card/80 transition-all cursor-pointer"
                 onClick={() => setSelectedEvent(event)}
               >
                 <div className="relative w-32 h-24 rounded-lg overflow-hidden flex-shrink-0">
@@ -336,7 +409,7 @@ export default function EventsPage() {
                     src={event.image || "/placeholder.svg"}
                     alt={event.title}
                     fill
-                    className="object-cover"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                     crossOrigin="anonymous"
                   />
                 </div>
@@ -348,17 +421,17 @@ export default function EventsPage() {
                     >
                       {event.type}
                     </Badge>
-                    <span className="text-xs text-muted-foreground">
+                    <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
                       {event.date}
                     </span>
                   </div>
                   <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
                     {event.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground mt-1 line-clamp-1">
+                  <p className="text-sm text-muted-foreground mt-1 line-clamp-1 group-hover:text-foreground transition-colors">
                     {event.description}
                   </p>
-                  <div className="flex items-center gap-1 mt-2 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-1 mt-2 text-xs text-muted-foreground group-hover:text-foreground transition-colors">
                     <Users className="h-3 w-3" />
                     <span>{event.attendees}+ attended</span>
                   </div>
@@ -501,21 +574,25 @@ export default function EventsPage() {
                   </div>
                 )}
 
-                {selectedEvent.registrationLink &&
-                  selectedEvent.status === "upcoming" && (
-                    <Button
-                      asChild
-                      className="mt-6 w-full bg-gradient-to-r from-neon-cyan to-neon-green text-background hover:opacity-90"
-                    >
-                      <a
-                        href={selectedEvent.registrationLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Register Now
-                      </a>
-                    </Button>
-                  )}
+                {selectedEvent.status !== "past" && (
+                  <Button
+                    onClick={() => handleRegistrationAction(selectedEvent)}
+                    variant={
+                      isRegistrationClosed(selectedEvent)
+                        ? "outline"
+                        : "default"
+                    }
+                    className={`mt-6 w-full transition-all duration-300 ${
+                      isRegistrationClosed(selectedEvent)
+                        ? "border-destructive/50 text-destructive hover:bg-destructive/20 hover:border-destructive dark:hover:bg-destructive/30"
+                        : "bg-gradient-to-r from-neon-cyan to-neon-green text-background hover:opacity-90"
+                    }`}
+                  >
+                    {isRegistrationClosed(selectedEvent)
+                      ? "Registration Closed"
+                      : "Register Now"}
+                  </Button>
+                )}
               </div>
             </motion.div>
           </motion.div>

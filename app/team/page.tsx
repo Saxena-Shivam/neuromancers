@@ -183,7 +183,7 @@ export default function TeamPage() {
                     className={
                       selectedDomain === domain
                         ? "bg-primary text-primary-foreground"
-                        : "border-border"
+                        : "border-primary/30 hover:border-primary/60 hover:bg-primary/10 text-foreground hover:text-foreground transition-all duration-200"
                     }
                   >
                     {domain}
