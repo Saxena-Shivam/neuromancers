@@ -10,8 +10,8 @@ export function Gallery() {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
-    amount: 0.45,
-    margin: "-10% 0px -10% 0px",
+    amount: 0.1,
+    margin: "0px 0px -10% 0px",
   });
   const [selectedImage, setSelectedImage] = useState<
     (typeof galleryImages)[0] | null
@@ -49,7 +49,6 @@ export function Gallery() {
 
   const firstImage = galleryImages[0];
   const restImages = galleryImages.slice(1);
-  const shouldLoadGalleryImages = isInView;
 
   return (
     <section className="py-24 lg:py-32 bg-card/50" ref={ref}>
@@ -96,11 +95,7 @@ export function Gallery() {
               >
                 <div className="relative aspect-[16/9] sm:aspect-[16/8]">
                   <Image
-                    src={
-                      shouldLoadGalleryImages
-                        ? firstImage.src || "/placeholder.svg"
-                        : "/placeholder.svg"
-                    }
+                    src={firstImage.src || "/placeholder.svg"}
                     alt={firstImage.alt}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -150,11 +145,7 @@ export function Gallery() {
                     >
                       <div className="relative aspect-[4/3]">
                         <Image
-                          src={
-                            shouldLoadGalleryImages
-                              ? image.src || "/placeholder.svg"
-                              : "/placeholder.svg"
-                          }
+                          src={image.src || "/placeholder.svg"}
                           alt={image.alt}
                           fill
                           className="object-cover transition-transform duration-500 group-hover:scale-110"
