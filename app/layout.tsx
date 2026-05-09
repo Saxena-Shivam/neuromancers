@@ -12,7 +12,7 @@ import { ParticleBackground } from "@/components/particle-background";
 
 const _inter = Inter({ subsets: ["latin"] });
 const _jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] });
-
+const DEFAULT_THEME = "dark"; //dark or light
 export const metadata: Metadata = {
   title: "Neuromancers | IIT Bhubaneswar Programming Society",
   description:
@@ -45,8 +45,8 @@ export default function RootLayout({
         <ParticleBackground />
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
-          enableSystem
+          defaultTheme={DEFAULT_THEME}
+          enableSystem={false}
           disableTransitionOnChange
         >
           <Navbar />

@@ -84,7 +84,18 @@ export const domainLeads: DomainLeadGroup[] = [
         github: "https://github.com/Vishnu-Utkarsh",
         bio: "ECE '28, Expert @CodeForces, Knight @LeetCode",
       },
-
+      {
+        id: 30,
+        name: "Amit Kumar",
+        role: "Member",
+        domain: "Competitive Programming (CP) Web Development",
+        image:
+          "/profile/optimized/IMG_20250607_111606.jpg (1) - AMIT KUMAR.jpeg",
+        email: "24cs01005@iitbbs.ac.in",
+        linkedin: "https://www.linkedin.com/in/amit-kumar-542253301/",
+        github: "https://github.com/amitak17",
+        bio: "Second-year CSE student passionate about competitive programming and problem solving.",
+      },
       {
         id: 7,
         name: "Dabhi Vishwas Kamleshbhai",
@@ -97,23 +108,47 @@ export const domainLeads: DomainLeadGroup[] = [
         github: "https://github.com/Vishwasdabhi",
         bio: "Competitive programmer skilled in DSA and OOP, focused on efficient and scalable solutions.",
       },
+      {
+        id: 29,
+        name: "Kommuru Jayasurya",
+        role: "Member",
+        domain: "Competitive Programming (CP)",
+        image:
+          "/profile/optimized/IMG20240610154643-EDIT - KOMMURU JAYASURYA.jpg",
+        email: "23cs02015@iitbbs.ac.in",
+        linkedin: "https://www.linkedin.com/in/jayasurya-kommuru-30571028b/",
+        github: "https://github.com/Jayasurya1729",
+        bio: "Computer Science student with strong interest in problem-solving, data structures, and software development.",
+      },
+
+      {
+        id: 31,
+        name: "Abhinaba De Roy",
+        role: "Member",
+        domain: "Competitive Programming (CP) Web Development",
+        image: "/profile/optimized/IMG_20260126_202629 - ABHINABA DE ROY.jpg",
+        email: "24cs01002@iitbbs.ac.in",
+        linkedin: "https://www.linkedin.com/in/abhinaba-de-roy-83a731326",
+        github: "https://github.com/deabhi76",
+        bio: "Second-year Computer Science undergraduate interested in data structures, competitive programming, and web development.",
+      },
+      {
+        id: 32,
+        name: "Arit Gandhi",
+        role: "Member",
+        domain: "Competitive Programming (CP) Machine Learning / AI",
+        image:
+          "/profile/optimized/IMG_20260130_194135 - ARIT SHARAD GANDHI.jpg",
+        email: "23cs01006@iitbbs.ac.in",
+        linkedin: "https://www.linkedin.com/in/arit-gandhi-bbb97b286/",
+        github: "https://github.com/AritGandhi1",
+        bio: "Passionate about competitive programming, algorithmic optimization, and machine learning with a strong interest in mentoring students.",
+      },
     ],
   },
   {
     category: "App Development ",
     members: [
-      {
-        id: 8,
-        name: "Ayush Agrawal",
-        role: "Governor (2024-2025)",
-        domain:
-          "Competitive Programming (CP) Web Development App Development System Design",
-        image: "/profile/optimized/my_pic - AYUSH AGRAWAL.webp",
-        email: "ayushagrawalgdbh@gmail.com",
-        linkedin: "https://www.linkedin.com/in/ayush07agrawal/",
-        github: "https://github.com/ayush07agrawal",
-        bio: "Interested in competitive programming, web and app development, and building strong programming fundamentals.",
-      },
       {
         id: 9,
         name: "Kadambari Siddarth Subramanyam",
@@ -127,6 +162,31 @@ export const domainLeads: DomainLeadGroup[] = [
           "https://www.linkedin.com/in/siddarth-kadambari-8838612ab?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
         github: "https://github.com/K-Siddarth",
         bio: "Interested in web and app development with expertise in system design.",
+      },
+      {
+        id: 8,
+        name: "Ayush Agrawal",
+        role: "Governor (2024-2025)",
+        domain:
+          "Competitive Programming (CP) Web Development App Development System Design",
+        image: "/profile/optimized/my_pic - AYUSH AGRAWAL.webp",
+        email: "ayushagrawalgdbh@gmail.com",
+        linkedin: "https://www.linkedin.com/in/ayush07agrawal/",
+        github: "https://github.com/ayush07agrawal",
+        bio: "Interested in competitive programming, web and app development, and building strong programming fundamentals.",
+      },
+      {
+        id: 15,
+        name: "Jayaditya Sahu",
+        role: "Member",
+        domain:
+          "Web Development App Development Machine Learning / AI Data Science",
+        image:
+          "/profile/optimized/WhatsApp Image 2026-01-24 at 8.37.00 PM - Jayaditya Sahu.webp",
+        email: "23CS01025@iitbbs.ac.in",
+        linkedin: "https://www.linkedin.com/in/jayaditya-sahu-0b1a922b4/",
+        github: "https://github.com/Jayadityas",
+        bio: "Third year CSE with experience in MERN, Data analysis, ML. National Semi-finalist in Flipkart Grid 7.0.",
       },
     ],
   },
@@ -168,15 +228,16 @@ export const domainLeads: DomainLeadGroup[] = [
         bio: "Proficient in full-stack development with React.js, Next.js. Passionate about building real-time applications.",
       },
       {
-        id: 14,
-        name: "Ashmit Chowdhury",
+        id: 37,
+        name: "Akshit Meshram",
         role: "Member",
-        domain: "Competitive Programming (CP)",
-        image: "/profile/optimized/IMG-20251001-WA0121 - ASHMIT CHOWDHURY.webp",
-        email: "24cs01010@iitbbs.ac.in",
-        linkedin: "https://www.linkedin.com/in/ashmit-chowdhury",
-        github: "https://github.com/baguvix7",
-        bio: "Avid competitive programmer.",
+        domain:
+          "Competitive Programming (CP) Web Development Machine Learning / AI Data Science System Design Generative AI",
+        image: "/profile/optimized/1754840040491 - Akshit Meshram.png",
+        email: "meshramakshit15@gmail.com",
+        linkedin: "https://www.linkedin.com/in/akshit-meshram-b02046327/",
+        github: "https://github.com/Akshit4340",
+        bio: "Tech enthusiast passionate about mastering new technologies across AI, web development, and system design.",
       },
     ],
   },
@@ -194,25 +255,23 @@ export const domainLeads: DomainLeadGroup[] = [
         github: "https://github.com/Devu2501",
         bio: "Focused on learning DSA and competitive programming.",
       },
+      {
+        id: 14,
+        name: "Ashmit Chowdhury",
+        role: "Member",
+        domain: "Competitive Programming (CP) Computer Fundamentals",
+        image: "/profile/optimized/IMG-20251001-WA0121 - ASHMIT CHOWDHURY.webp",
+        email: "24cs01010@iitbbs.ac.in",
+        linkedin: "https://www.linkedin.com/in/ashmit-chowdhury",
+        github: "https://github.com/baguvix7",
+        bio: "Avid competitive programmer.",
+      },
     ],
   },
 
   {
     category: "Machine Learning & Data Science",
     members: [
-      {
-        id: 15,
-        name: "Jayaditya Sahu",
-        role: "Member",
-        domain:
-          "Web Development App Development Machine Learning / AI Data Science",
-        image:
-          "/profile/optimized/WhatsApp Image 2026-01-24 at 8.37.00 PM - Jayaditya Sahu.webp",
-        email: "23CS01025@iitbbs.ac.in",
-        linkedin: "https://www.linkedin.com/in/jayaditya-sahu-0b1a922b4/",
-        github: "https://github.com/Jayadityas",
-        bio: "Third year CSE with experience in MERN, Data analysis, ML. National Semi-finalist in Flipkart Grid 7.0.",
-      },
       {
         id: 16,
         name: "Pathya Taya",
@@ -272,6 +331,29 @@ export const domainLeads: DomainLeadGroup[] = [
         linkedin: "https://www.linkedin.com/in/harshit-maheshwari-8808aa2a9/",
         github: "https://github.com/itsmeanonymous27",
         bio: "Part-time engineer and full-time athlete with interests in competitive programming and machine learning.",
+      },
+      {
+        id: 28,
+        name: "Ashish Gowda G",
+        role: "Member",
+        domain: "Competitive Programming (CP) Machine Learning / AI",
+        image: "/profile/optimized/ashish-gowda.png",
+        email: "gowdaashish195@gmail.com",
+        linkedin: "https://www.linkedin.com/in/ashish-gowda-g-17ba59317",
+        github: "https://github.com/AshishGowdaG",
+        bio: "Currently working on low-level concepts with previous interests in AI and Machine Learning.",
+      },
+
+      {
+        id: 33,
+        name: "Samiksha Patil",
+        role: "Member",
+        domain: "Competitive Programming (CP) Machine Learning / AI",
+        image: "/profile/optimized/IMG-20250906-WA0047 - PATIL SAMIKSHA.jpg",
+        email: "24ee01062@iitbbs.ac.in",
+        linkedin: "https://www.linkedin.com/in/samiksha-patil-711704332",
+        github: "https://github.com/Ji-eun-aie",
+        bio: "Interested in Competitive Programming and Machine Learning while continuously improving problem-solving skills.",
       },
     ],
   },
@@ -337,9 +419,47 @@ export const members: TeamMember[] = [
     github: "https://github.com/nsaikeerthi5",
     bio: "Passionate about programming and problem-solving, constantly improving skills through practice.",
   },
-];
 
-export const alumni: TeamMember[] = [];
+  // Add inside "App Development" category members array
+  {
+    id: 34,
+    name: "Nilaksh Jha",
+    role: "Member",
+    domain:
+      "Competitive Programming (CP) Web Development App Development Machine Learning / AI System Design",
+    image: "/profile/optimized/Nilaksh Jha  - Nilaksh Jha.jpg",
+    email: "25cs01058@iitbbs.ac.in",
+    linkedin: "https://www.linkedin.com/in/nilaksh-jha-3376a0381",
+    github: "https://github.com/nilakshjhaofficial-png",
+    bio: "Computer Science undergraduate interested in web development, competitive programming, data science, and AI.",
+  },
+];
+// Add inside alumni array
+export const alumni: TeamMember[] = [
+  {
+    id: 35,
+    name: "Rachit Jain",
+    role: "Ex Governor (2024-25)",
+    domain: "Competitive Programming (CP) Web Development App Development",
+    image: "/profile/optimized/IMG_20260205_103745 - RACHIT JAIN.jpg",
+    email: "22ec01006@iitbbs.ac.in",
+    linkedin:
+      "https://www.linkedin.com/in/rachit-jain-1b862b252?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    github: "https://github.com/laughing-philosopher",
+    bio: "ECE graduate passionate about coding, app development, and competitive programming. Converts caffeine into code.",
+  },
+  {
+    id: 36,
+    name: "Ayush Gupta",
+    role: "Governor",
+    domain: "Competitive Programming (CP) Web Development App Development",
+    image: "/profile/optimized/AyushGuptaImage - ayush gupta.jpg",
+    email: "22EC01057@iitbbs.ac.in",
+    linkedin: "https://www.linkedin.com/in/ayush-gupta-1020a9253/",
+    github: "https://github.com/ayush1108g",
+    bio: "Focused on learning, building, and innovating through competitive programming and development.",
+  },
+];
 
 export const teamDomains = [
   "All",
