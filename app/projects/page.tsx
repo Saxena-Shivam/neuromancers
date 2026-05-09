@@ -349,7 +349,7 @@ export default function ProjectsPage() {
               className="mt-8 bg-gradient-to-r from-neon-cyan to-neon-green text-background hover:opacity-90"
             >
               <a
-                href="https://github.com/neuromancers-iitbbs"
+                href="https://github.com/NeuromancersIITBBS"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -97,7 +97,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/neuromancers-iitbbs/website.git
+git clone https://github.com/NeuromancersIITBBS/website.git
 cd neuromancers
 
 # Install dependencies

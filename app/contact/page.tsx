@@ -36,7 +36,7 @@ const socialLinks = [
   {
     name: "GitHub",
     icon: Github,
-    url: "https://github.com/neuromancers-iitbbs",
+    url: "https://github.com/NeuromancersIITBBS",
     color: "hover:text-white",
   },
   {

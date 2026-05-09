@@ -43,7 +43,7 @@ const footerLinks = {
 const socialLinks = [
   {
     icon: Github,
-    href: "https://github.com/neuromancers-iitbbs",
+    href: "https://github.com/NeuromancersIITBBS",
     label: "GitHub",
   },
   {

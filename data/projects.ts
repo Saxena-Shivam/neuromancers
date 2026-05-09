@@ -43,6 +43,10 @@ export const projects: Project[] = [
     contributors: [
       {
         name: "Shivam Saxena",
+        image: "/profile/optimized/shivam2.webp",
+      },
+      {
+        name: "Kadambari Siddarth Subramanyam",
         image:
           "/profile/optimized/Screenshot_2025-05-12-17-30-05-94_6012fa4d4ddec268fc5c7112cbb265e7_Original - KADAMBARI SIDDARTH SUBRAMANYAM.webp",
       },
