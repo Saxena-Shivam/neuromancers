@@ -138,7 +138,7 @@ export const domainLeads: DomainLeadGroup[] = [
         role: "Member",
         domain: "Competitive Programming (CP) Machine Learning / AI",
         image:
-          "/profile/optimized/IMG_20260130_194135 - ARIT SHARAD GANDHI.jpg",
+          "/profile/optimized/IMG_20260130_194135 - ARIT SHARAD GANDHI.wepb",
         email: "23cs01006@iitbbs.ac.in",
         linkedin: "https://www.linkedin.com/in/arit-gandhi-bbb97b286/",
         github: "https://github.com/AritGandhi1",
