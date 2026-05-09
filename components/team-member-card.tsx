@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Github, Linkedin, Mail } from "lucide-react";
@@ -27,6 +28,12 @@ export function TeamMemberCard({
   index = 0,
   variant = "medium",
 }: TeamMemberCardProps) {
+  const [hasImageError, setHasImageError] = useState(false);
+
+  useEffect(() => {
+    setHasImageError(false);
+  }, [member.image]);
+
   const sizes = {
     large: "p-8",
     medium: "p-6",
@@ -45,6 +52,13 @@ export function TeamMemberCard({
     small: "w-full max-w-[260px] mx-auto",
   };
 
+  const initials = member.name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase())
+    .join("");
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -57,22 +71,29 @@ export function TeamMemberCard({
         <div
           className={`relative ${imageSizes[variant]} rounded-full overflow-hidden mb-4 ring-2 ring-border group-hover:ring-primary/50 transition-all`}
         >
-          <Image
-            src={member.image || "/placeholder.svg"}
-            alt={member.name}
-            fill
-            className="object-cover"
-            sizes={
-              variant === "large"
-                ? "128px"
-                : variant === "medium"
-                  ? "96px"
-                  : "64px"
-            }
-            quality={80}
-            loading={index < 3 ? "eager" : "lazy"}
-            priority={index < 3}
-          />
+          {!hasImageError ? (
+            <Image
+              src={member.image || "/placeholder.svg"}
+              alt={member.name}
+              fill
+              className="object-cover"
+              sizes={
+                variant === "large"
+                  ? "128px"
+                  : variant === "medium"
+                    ? "96px"
+                    : "64px"
+              }
+              quality={80}
+              loading={index < 3 ? "eager" : "lazy"}
+              priority={index < 3}
+              onError={() => setHasImageError(true)}
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-primary/20 via-secondary to-muted text-lg font-semibold text-primary">
+              <span>{initials || "NM"}</span>
+            </div>
+          )}
           {/* Glow effect on hover */}
           <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
         </div>
